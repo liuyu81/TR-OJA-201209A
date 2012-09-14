@@ -31,5 +31,5 @@ int main(int argc, char * argv[])
   char a = '\0';
   int r = fscanf(fp, "%c", &a);
   fclose(fp);
-  return (r == 1);
+  return ((r == 1) ? 0 : 1);
 }

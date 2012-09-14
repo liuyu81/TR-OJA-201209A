@@ -12,4 +12,4 @@ clean:
 	rm -rf $(TARGETS:.exe=.exe.dSYM)
 
 %.exe: %.c
-	$(CC) -Wall -O1 -ansi -o $(@) $(<)
+	$(CC) -Wall -O1 -static -ansi -o $(@) $(<)
