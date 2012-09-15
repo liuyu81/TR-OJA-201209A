@@ -19,7 +19,8 @@ int main(int argc, char * argv[])
       fp = fopen(path, "r");
       if (fp == NULL)
       {
-        fprintf(stderr, "Failed to open file \"%s\": %s.\n", path, strerror(errno));
+        fprintf(stderr, "Failed to open file \"%s\": %s.\n", path, 
+          strerror(errno));
         return 2;
       }
   }
@@ -28,8 +29,9 @@ int main(int argc, char * argv[])
       /* fallback to standard input stream */
       fp = stdin;
   }
-  char a = '\0';
-  int r = fscanf(fp, "%c", &a);
+  char line[4096] = {0};
+  char * r = fgets(line, sizeof(line), fp);
   fclose(fp);
-  return ((r == 1) ? 0 : 1);
+  fprintf(stdout, "%s", line);
+  return ((r != NULL) ? 0 : 1);
 }
