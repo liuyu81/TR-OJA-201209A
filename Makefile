@@ -2,7 +2,7 @@
 
 .PHONY: all clean
 
-TARGETS = case1/hello.exe case2/malloc.exe case3/foo/fopen.exe case5/hello.exe
+TARGETS = case1/hello.exe case2/malloc.exe case3/foo/fopen.exe case4/hello.exe case5/fopen.exe
 
 all: $(TARGETS)
 	chmod 0600 case3/secret.in
