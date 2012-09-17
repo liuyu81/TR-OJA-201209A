@@ -21,7 +21,7 @@ class SelectiveOpen(SandboxPolicy):
         return super(SelectiveOpen, self).__call__(e, a)
     def SYS_open(self, e, a):
         path, mode = self.parent.dump(T_STRING, e.ext1), e.ext2
-        if path == "./data.in" and mode == O_RDONLY:
+        if path == b"./data.in" and mode == O_RDONLY:
             return SandboxAction(S_ACTION_CONT)
         return SandboxAction(S_ACTION_KILL, S_RESULT_RF)
     pass
