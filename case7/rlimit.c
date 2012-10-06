@@ -1,3 +1,12 @@
+/**
+ * @copyright (c) 2012, OpenJudge Alliance <http://openjudge.net>
+ * @author LIU Yu <pineapple.liu@gmail.com>
+ * @date 2012/10/06
+ * 
+ * This program source code is part of the OpenJudge Alliance Technical Report
+ * (TR-OJA-201209A) at <http://openjudge.net/TR/201209A>.
+ */
+
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +51,7 @@ main (int argc, char* argv[])
     };
     double time = (ru.ru_utime.tv_sec + ru.ru_stime.tv_sec) * 1000 + \
         (ru.ru_utime.tv_usec + ru.ru_stime.tv_usec) / 1000;
-    fprintf(stderr, "cpu: %.3lf\n", time / 1000);
+    fprintf(stderr, "cpu: %.3lf sec\n", time / 1000);
     return 0;
   }
   else
