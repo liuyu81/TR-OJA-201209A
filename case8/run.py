@@ -1,39 +1,47 @@
 #!/usr/bin/env python
-from posix import O_RDONLY
-from platform import machine as arch
+
+from platform import system, machine
 from sandbox import *
 
-if arch() not in ('x86_64', 'i686'):
+ostype, arch = system(), machine()
+if ostype not in ('Linux', ) or arch not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
 symbol = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
     ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
 
-class PredictiveQuotaPolicy(SandboxPolicy):
+class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
     # system calls for memory-allocation
-    SC_brk = (12, 0) if arch() == 'x86_64' else (45, 0)
-    SC_mmap = (9, 0) if arch() == 'x86_64' else (90, 0)
-    SC_mremap = (25, 0) if arch() == 'x86_64' else (163, 0)
-    def __init__(self, sbox):
-        assert(isinstance(sbox, Sandbox))
-        self.sbox = sbox
+    SC_brk = (12, 0) if arch == 'x86_64' else (45, 0)
+    SC_mmap = (9, 0) if arch == 'x86_64' else (90, 0)
+    SC_mremap = (25, 0) if arch == 'x86_64' else (163, 0)
+    def __init__(self, *args, **kwds):
+        # initalize base types
+        assert(not 'policy' in kwds)
+        SandboxPolicy.__init__(self)
+        Sandbox.__init__(self, *args, **kwds)
+        self.policy = self
+        # initialize members
         self.data_segment_end = 0 # data segment end address
-        self.pending_alloc = 0 # pending memory allocation in byte
+        self.pending_memory = 0 # pending memory allocation (kB)
         self.sc_table = {self.SC_brk: self.SYS_brk, \
             self.SC_mmap: self.SYS_mmap, self.SC_mremap: self.SYS_mremap}
         pass
     def __call__(self, e, a):
         if e.type in (S_EVENT_SYSCALL, S_EVENT_SYSRET):
-            sc = (e.data, e.ext0 if arch() == 'x86_64' else 0)
+            sc = (e.data, e.ext0 if arch == 'x86_64' else 0)
             if sc in self.sc_table:
                 return self.sc_table[sc](e, a)
-        return super(PredictiveQuotaPolicy, self).__call__(e, a)
-    @property
-    def mem(self):
-        return (self.sbox.probe()['mem_info'][0] * 1024, self.pending_alloc)
+        return SandboxPolicy.__call__(self, e, a)
+    def probe(self):
+        d = Sandbox.probe(self, False)
+        mem_info = list(d['mem_info'])
+        mem_info.append(self.pending_memory)
+        d['mem_info'] = tuple(mem_info)
+        return d
     def MEM_audit(self, e, a, incr=0):
-        if sum(self.mem) + incr > self.sbox.quota[2]:
-            self.pending_alloc = incr
+        if self.probe()['mem_info'][0] * 1024 + incr > self.quota[2]:
+            self.pending_memory = incr / 1024
             return SandboxAction(S_ACTION_KILL, S_RESULT_ML)
         return SandboxAction(S_ACTION_CONT)
     def SYS_brk(self, e, a):
@@ -60,9 +68,9 @@ class PredictiveQuotaPolicy(SandboxPolicy):
         return SandboxAction(S_ACTION_KILL, S_RESULT_RF)
     pass
 
-s = Sandbox("./malloc.exe", quota=dict(memory=2**22))
-s.policy = PredictiveQuotaPolicy(s)
+s = PredictiveQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
 s.run()
 
 print("result: %s" % symbol.get(s.result, 'NA'))
-print("mem: %d kB / %d kB" % (s.policy.mem[0] / 1024, sum(s.policy.mem) / 1024))
+m = s.probe()['mem_info']
+print("mem: %d kB / %d kB" % (m[0], m[0] + m[-1]))

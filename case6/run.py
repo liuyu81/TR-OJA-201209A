@@ -1,22 +1,25 @@
 #!/usr/bin/env python
+
 from posix import O_RDONLY
-from platform import machine as arch
+from platform import system, machine
 from sandbox import *
 
-if arch() not in ('x86_64', 'i686'):
+ostype, arch = system(), machine()
+
+if ostype not in ('Linux', ) or arch not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
 symbol = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
     ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
 
 class SelectiveOpenPolicy(SandboxPolicy):
-    SC_open = (2, 0) if arch() == 'x86_64' else (5, 0)
+    SC_open = (2, 0) if arch == 'x86_64' else (5, 0)
     def __init__(self, sbox):
         assert(isinstance(sbox, Sandbox))
         self.sbox = sbox
     def __call__(self, e, a):
         if e.type == S_EVENT_SYSCALL:
-            if self.SC_open == (e.data, e.ext0 if arch() == 'x86_64' else 0):
+            if self.SC_open == (e.data, e.ext0 if arch == 'x86_64' else 0):
                 return self.SYS_open(e, a)
         return super(SelectiveOpenPolicy, self).__call__(e, a)
     def SYS_open(self, e, a):
