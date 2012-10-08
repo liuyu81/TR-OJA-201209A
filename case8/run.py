@@ -7,6 +7,7 @@ from sandbox import *
 if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
+# sandbox with (partial) support for predictive out-of-quota (memory) detection
 class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
     result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
         ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
@@ -80,8 +81,8 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
         return a
     pass
 
-s = PredictiveQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
-s.run()
-
-print("result: %(result)s\ncpu: %(cpu)dms" % s.probe())
-print("mem: %d kB / %d kB" % s.probe()['mem'])
+if __name__ == '__main__':
+    s = PredictiveQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
+    s.run()
+    print("result: %(result)s\ncpu: %(cpu)dms" % s.probe())
+    print("mem: %dkB / %dkB" % s.probe()['mem'])
