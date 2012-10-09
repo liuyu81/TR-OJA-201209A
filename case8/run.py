@@ -69,12 +69,12 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
     def SYS_mmap(self, e, a):
         MAP_PRIVATE = 0x02      # from <bits/mman.h>
         if e.type == S_EVENT_SYSCALL:
-            size, flags, fd = c_int(e.ext2), c_int(e.ext4), c_int(e.ext5)
+            size, flags, fd = e.ext2, c_int(e.ext4).value, c_int(e.ext5).value
             # forbid non-pivate mapping or mapping to unknown file descriptors
-            if flags.value & MAP_PRIVATE == 0 or fd.value not in (-1, 0, 1, 2):
+            if flags & MAP_PRIVATE == 0 or fd not in (-1, 0, 1, 2):
                 return self._KILL_RF(e, a)
             # new memory mapping (heap allocation)
-            return self._MEM_check(e, a, size.value)
+            return self._MEM_check(e, a, size)
         return self._MEM_check(e, a)
     def SYS_mremap(self, e, a):
         # fallback to lazy (non-predictive) quota limitation
