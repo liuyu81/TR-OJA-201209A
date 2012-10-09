@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+#
+# @copyright (c) 2012, OpenJudge Alliance <http://openjudge.net>
+# @author LIU Yu <pineapple.liu@gmail.com>
+# @date 2012/10/06
+#
+# This program source code is part of the OpenJudge Alliance Technical Report
+# (TR-OJA-201209A) at <http://openjudge.net/TR/201209A>.
+#
 
 from ctypes import c_int
 from platform import system, machine
@@ -40,7 +48,6 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
     def probe(self):
         # add custom entries into the probe dict
         d = Sandbox.probe(self, False)
-        d['cpu'] = d['cpu_info'][0]
         d['mem'] = (d['mem_info'][1], d['mem_info'][0] + self.pending_alloc)
         return d
     def __call__(self, e, a):
@@ -91,12 +98,12 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
         return a
     pass
 
+result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
+    ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
+
 if __name__ == '__main__':
     s = PredictiveQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
     s.run()
-    result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
-        ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
     print("result: %s" % result_name.get(s.result, 'NA'))
-    print("cpu: %(cpu)dms" % s.probe())
-    print("mem: %dkB / %dkB" % s.probe()['mem'])
+    print("mem: %dkB / %dkB" % s.probe()['mem']) # allocated / predicted
 

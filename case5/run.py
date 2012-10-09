@@ -1,5 +1,13 @@
 #!/usr/bin/env python
-import sys
+#
+# @copyright (c) 2012, OpenJudge Alliance <http://openjudge.net>
+# @author LIU Yu <pineapple.liu@gmail.com>
+# @date 2012/10/06
+#
+# This program source code is part of the OpenJudge Alliance Technical Report
+# (TR-OJA-201209A) at <http://openjudge.net/TR/201209A>.
+#
+
 from sandbox import *
 
 class RelaxMemoryPolicy(SandboxPolicy):
@@ -17,7 +25,12 @@ class RelaxMemoryPolicy(SandboxPolicy):
         return super(RelaxMemoryPolicy, self).__call__(e, a)
     pass
 
-s = Sandbox("./malloc.exe", quota=dict(memory=2**22))
-s.policy = RelaxMemoryPolicy(s, 2.0)
-s.run()
+result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
+    ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
+
+if __name__ == '__main__':
+    s = Sandbox("./malloc.exe", quota=dict(memory=2**22))
+    s.policy = RelaxMemoryPolicy(s, 2.0)
+    s.run()
+    print("result: %s" % result_name.get(s.result, 'NA'))
 
