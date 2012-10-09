@@ -10,10 +10,6 @@ if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
 
 # sandbox with (partial) support for predictive out-of-quota (memory) detection
 class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
-    # result code translation table
-    result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
-        ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
-    # system calls for memory-allocation
     def __init__(self, *args, **kwds):
         # Linux system calls for memory-allocation
         if machine() == 'x86_64': # x86_64 (multiarch) system calls
@@ -46,7 +42,6 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
         d = Sandbox.probe(self, False)
         d['cpu'] = d['cpu_info'][0]
         d['mem'] = (d['mem_info'][1], d['mem_info'][0] + self.pending_alloc)
-        d['result'] = self.result_name.get(self.result, 'NA')
         return d
     def __call__(self, e, a):
         # handle SYSCALL/SYSRET events with local rules
@@ -58,7 +53,7 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
         return SandboxPolicy.__call__(self, e, a)
     def SYS_brk(self, e, a):
         if e.type == S_EVENT_SYSCALL:
-            # data segment increment (stack allocation)
+            # pending data segment increment
             if e.ext1 > 0:
                 incr = e.ext1 - self.data_seg_end
                 return self._MEM_check(e, a, incr)
@@ -73,7 +68,7 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
             # forbid non-pivate mapping or mapping to unknown file descriptors
             if flags & MAP_PRIVATE == 0 or fd not in (-1, 0, 1, 2):
                 return self._KILL_RF(e, a)
-            # new memory mapping (heap allocation)
+            # pending memory mapping
             return self._MEM_check(e, a, size)
         return self._MEM_check(e, a)
     def SYS_mremap(self, e, a):
@@ -99,6 +94,9 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
 if __name__ == '__main__':
     s = PredictiveQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
     s.run()
-    print("result: %(result)s\ncpu: %(cpu)dms" % s.probe())
+    result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
+        ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
+    print("result: %s" % result_name.get(s.result, 'NA'))
+    print("cpu: %(cpu)dms" % s.probe())
     print("mem: %dkB / %dkB" % s.probe()['mem'])
 
