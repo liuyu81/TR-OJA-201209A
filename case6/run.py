@@ -7,9 +7,6 @@ from sandbox import *
 if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
-result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
-    ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
-
 class SelectiveOpenPolicy(SandboxPolicy):
     SC_open = ((2, 0), (5, 1)) if machine() == 'x86_64' else (5, )
     def __init__(self, sbox):
@@ -28,9 +25,12 @@ class SelectiveOpenPolicy(SandboxPolicy):
         return SandboxAction(S_ACTION_KILL, S_RESULT_RF)
     pass
 
-s = Sandbox(["./fopen.exe", "./secret.in"])
-s.policy = SelectiveOpenPolicy(s)
-s.run()
+result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
+    ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
 
-print("result: %s" % result_name.get(s.result, 'NA'))
+if __name__ == '__main__':
+    s = Sandbox(["./fopen.exe", "./secret.in"])
+    s.policy = SelectiveOpenPolicy(s)
+    s.run()
+    print("result: %s" % result_name.get(s.result, 'NA'))
 

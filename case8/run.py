@@ -67,19 +67,17 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
             self.data_seg_end = e.ext1
         return self._MEM_check(e, a)
     def SYS_mmap(self, e, a):
-        PROT_READ = 0x01        # from <bits/mman.h>
-        PROT_WRITE = 0x02       # as above
-        MAP_PRIVATE = 0x02      # as above
-        MAP_ANONYMOUS = 0x20    # as above
+        MAP_PRIVATE = 0x02      # from <bits/mman.h>
         if e.type == S_EVENT_SYSCALL:
-            # new memory map (heap allocation)
-            if (e.ext1, e.ext3, e.ext4, c_int(e.ext5).value, e.ext6) == \
-                (0, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0):
-                return self._MEM_check(e, a, e.ext2)
-            return self._KILL_RF(e, a)
+            size, flags, fd = c_int(e.ext2).value, c_int(e.ext4).value, c_int(e.ext5).value
+            # forbid non-pivate mapping or mapping to unknown file descriptors
+            if flags & MAP_PRIVATE == 0 or fd not in (-1, 0, 1, 2):
+                return self._KILL_RF(e, a)
+            # new memory mapping (heap allocation)
+            return self._MEM_check(e, a, size)
         return self._MEM_check(e, a)
     def SYS_mremap(self, e, a):
-        # TODO: incr = newsize - oldsize
+        # fallback to lazy quota limitation
         return self._MEM_check(e, a)
     def _MEM_check(self, e, a, incr=0):
         # compare current mem usage (incl. pending alloc) against the quota
