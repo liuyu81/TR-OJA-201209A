@@ -60,39 +60,40 @@ class PredictiveOutputQuotaSandbox(SandboxPolicy,Sandbox):
         # bypass other events to base class
         return SandboxPolicy.__call__(self, e, a)
     def SYS_write(self, e, a): # write / pwrite64
-        x64 = (machine() == 'x86_64' and e.ext0 == 0)
-        ssize_t, size_t = (c_int64, c_uint64) if x64 else (c_int32, c_uint32)
+        abi64 = (machine() == 'x86_64' and e.ext0 == 0)
+        ssize_t, size_t = (c_int64, c_uint64) if abi64 else (c_int32, c_uint32)
         if e.type == S_EVENT_SYSCALL:
             self.pending_bytes = size_t(e.ext3).value
         else:
             if ssize_t(e.ext1).value > 0:
                 self.written_bytes += ssize_t(e.ext1).value
             self.pending_bytes = 0
-        return self._quota_check(e, a)
+        return self._output_check(e, a)
     def SYS_writev(self, e, a): # writev / pwritev
-        x64 = (machine() == 'x86_64' and e.ext0 == 0)
-        ssize_t = c_int64 if x64 else c_int32
+        abi64 = (machine() == 'x86_64' and e.ext0 == 0)
+        ssize_t = c_int64 if abi64 else c_int32
         if e.type == S_EVENT_SYSCALL:
             address, iovcnt = e.ext2, c_int(e.ext3).value
             self.pending_bytes = 0
             for i in range(iovcnt):
-                iovec = self._dump_iovec(x64, address)
+                iovec = self._dump_iovec(abi64, address)
                 self.pending_bytes += iovec.iov_len
                 address += sizeof(iovec)
         else:
             if ssize_t(e.ext1).value > 0:
                 self.written_bytes += ssize_t(e.ext1).value
             self.pending_bytes = 0
-        return self._quota_check(e, a)
-    def _dump_iovec(self, x64, address):
-        typeid = T_ULONG if x64 else T_UINT
-        size_t, char_p = (c_uint64, ) * 2 if x64 else (c_uint32, ) * 2
+        return self._output_check(e, a)
+    def _dump_iovec(self, abi64, address):
+        # dump a struct iovec object from the given address
+        typeid = T_ULONG if abi64 else T_UINT
+        size_t, char_p = (c_uint64, ) * 2 if abi64 else (c_uint32, ) * 2
+        # from manpage writev(2)
         class struct_iovec(Structure):
              _fields_ = [('iov_base', char_p), ('iov_len', size_t), ]
-             pass
         return struct_iovec(self.dump(typeid, address), \
             self.dump(typeid, address + sizeof(char_p)))
-    def _quota_check(self, e, a):
+    def _output_check(self, e, a):
         # compare current written + pending bytes against the quota
         if self.written_bytes + self.pending_bytes > self.quota[3]:
             return self._KILL_OL(e, a)
