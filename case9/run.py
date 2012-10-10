@@ -17,7 +17,7 @@ from sandbox import *
 if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
-# sandbox with (partial) support for predictive out-of-quota (output) detection
+# sandbox with predictive out-of-quota (output) detection
 class PredictiveOutputQuotaSandbox(SandboxPolicy,Sandbox):
     def __init__(self, *args, **kwds):
         # Linux system calls for fd write
