@@ -16,7 +16,7 @@ from sandbox import *
 if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
-# sandbox with (partial) support for predictive out-of-quota (memory) detection
+# sandbox with (partial) predictive out-of-quota (memory) detection
 class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
     def __init__(self, *args, **kwds):
         # Linux system calls for memory-allocation
@@ -63,11 +63,11 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
             # pending data segment increment
             if e.ext1 > 0:
                 incr = e.ext1 - self.data_seg_end
-                return self._MEM_check(e, a, incr)
+                return self._memory_check(e, a, incr)
         else:
             # update data segment end address
             self.data_seg_end = e.ext1
-        return self._MEM_check(e, a)
+        return self._memory_check(e, a)
     def SYS_mmap(self, e, a):
         MAP_PRIVATE = 0x02      # from <bits/mman.h>
         if e.type == S_EVENT_SYSCALL:
@@ -76,12 +76,12 @@ class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
             if flags & MAP_PRIVATE == 0 or fd not in (-1, 0, 1, 2):
                 return self._KILL_RF(e, a)
             # pending memory mapping
-            return self._MEM_check(e, a, size)
-        return self._MEM_check(e, a)
+            return self._memory_check(e, a, size)
+        return self._memory_check(e, a)
     def SYS_mremap(self, e, a):
         # fallback to lazy (non-predictive) quota limitation
-        return self._MEM_check(e, a)
-    def _MEM_check(self, e, a, incr=0):
+        return self._memory_check(e, a)
+    def _memory_check(self, e, a, incr=0):
         # compare current mem usage (incl. pending alloc) against the quota
         self.pending_alloc = incr / 1024
         if max(self.probe()['mem']) * 1024 > self.quota[2]:
