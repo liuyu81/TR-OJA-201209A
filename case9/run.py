@@ -73,6 +73,7 @@ class PredictiveOutputQuotaSandbox(SandboxPolicy,Sandbox):
         abi64 = (machine() == 'x86_64' and e.ext0 == 0)
         ssize_t = c_int64 if abi64 else c_int32
         if e.type == S_EVENT_SYSCALL:
+            # enumerate the struct iovec[] to count pending bytes
             address, iovcnt = e.ext2, c_int(e.ext3).value
             self.pending_bytes = 0
             for i in range(iovcnt):
@@ -88,8 +89,7 @@ class PredictiveOutputQuotaSandbox(SandboxPolicy,Sandbox):
         # dump a struct iovec object from the given address
         typeid = T_ULONG if abi64 else T_UINT
         size_t, char_p = (c_uint64, ) * 2 if abi64 else (c_uint32, ) * 2
-        # from manpage writev(2)
-        class struct_iovec(Structure):
+        class struct_iovec(Structure): # from manpage writev(2)
              _fields_ = [('iov_base', char_p), ('iov_len', size_t), ]
         return struct_iovec(self.dump(typeid, address), \
             self.dump(typeid, address + sizeof(char_p)))
