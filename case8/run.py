@@ -17,7 +17,7 @@ if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
 # sandbox with (partial) predictive out-of-quota (memory) detection
-class PredictiveQuotaSandbox(SandboxPolicy,Sandbox):
+class PredictiveMemQuotaSandbox(SandboxPolicy,Sandbox):
     def __init__(self, *args, **kwds):
         # Linux system calls for memory-allocation
         if machine() == 'x86_64': # x86_64 (multiarch) system calls
@@ -102,7 +102,7 @@ result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
     ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
 
 if __name__ == '__main__':
-    s = PredictiveQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
+    s = PredictiveMemQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
     s.run()
     print("result: %s" % result_name.get(s.result, 'NA'))
     print("mem: %dkB / %dkB" % s.probe()['mem']) # allocated / predicted
