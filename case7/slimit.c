@@ -22,8 +22,12 @@
 #include <unistd.h>
 #include <sandbox.h>
 
-typedef enum {P_ELAPSED = 0, P_CPU = 1, P_MEMORY = 2, } probe_t;
-res_t probe(const sandbox_t*, probe_t);
+/* struct timespec to msec conversion */
+static unsigned long
+ts2ms(struct timespec ts)
+{
+    return ts.tv_sec * 1000 + ts.tv_nsec / 1000000;
+}
 
 int 
 main(int argc, const char* argv[])
@@ -49,33 +53,9 @@ main(int argc, const char* argv[])
     }
     sandbox_execute(&sbox);
     /* verbose statistics */
-    fprintf(stderr, "cpu: %.3lf ms\n", (double)probe(&sbox, P_CPU) / 1000.);
+    double time = ts2ms(sbox.stat.cpu_info.clock);
+    fprintf(stderr, "cpu: %.3lf ms\n", time / 1000.);
     /* destroy sandbox instance */
     sandbox_fini(&sbox);
     return EX_OK;
 }
-
-/* struct timespec to msec conversion */
-static unsigned long
-ts2ms(struct timespec ts)
-{
-    return ts.tv_sec * 1000 + ts.tv_nsec / 1000000;
-}
-
-res_t 
-probe(const sandbox_t* psbox, probe_t key)
-{
-    switch (key)
-    {
-    case P_ELAPSED:
-        return ts2ms(psbox->stat.elapsed);
-    case P_CPU:
-        return ts2ms(psbox->stat.cpu_info.clock);
-    case P_MEMORY:
-        return psbox->stat.mem_info.vsize_peak / 1024;
-    default:
-        break;
-    }
-    return 0;
-}
-
