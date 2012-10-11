@@ -26,11 +26,11 @@
 static unsigned long
 tv2ms(struct timeval tv)
 {
-    return ts.tv_sec * 1000 + ts.tv_usec / 1000;
+    return tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
 
 int 
-main (int argc, const char* argv[]) 
+main (int argc, char* argv[]) 
 {
   if (argc < 3)
   {
