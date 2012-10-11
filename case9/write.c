@@ -21,7 +21,8 @@ int main(int argc, char * argv[])
   };
   printf("Hello World!\n");
   write(STDOUT_FILENO, buff, strlen(buff));
-  /* Both pwrite() and pwritev() should fail with ESPIPE */
+  /* Both pwrite() and pwritev() should fail with ESPIPE because standard 
+   * streams are not seekable. So the correct output only contains 5 lines. */
   pwrite(STDOUT_FILENO, buff, strlen(buff), 0);
   writev(STDERR_FILENO, &vect[0], sizeof(vect) / sizeof(struct iovec));
   pwritev(STDERR_FILENO, &vect[0], sizeof(vect) / sizeof(struct iovec), 0);
