@@ -21,6 +21,10 @@ int main(int argc, char * argv[])
   };
   printf("Hello World!\n");
   write(STDOUT_FILENO, buff, strlen(buff));
+  /* Both pwrite() and pwritev() should fail with ESPIPE */
+  pwrite(STDOUT_FILENO, buff, strlen(buff), 0);
   writev(STDERR_FILENO, &vect[0], sizeof(vect) / sizeof(struct iovec));
+  pwritev(STDERR_FILENO, &vect[0], sizeof(vect) / sizeof(struct iovec), 0);
   return 0;
 }
+
