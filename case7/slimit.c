@@ -54,7 +54,7 @@ main(int argc, const char* argv[])
     sandbox_execute(&sbox);
     /* verbose statistics */
     double time = ts2ms(sbox.stat.cpu_info.clock);
-    fprintf(stderr, "cpu: %.3lf ms\n", time / 1000.);
+    fprintf(stderr, "cpu: %.3lf sec\n", time / 1000.);
     /* destroy sandbox instance */
     sandbox_fini(&sbox);
     return EX_OK;
