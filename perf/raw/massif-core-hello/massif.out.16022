@@ -1,0 +1,1049 @@
+desc: --pages-as-heap=yes
+cmd: ../../stime.exe 3 ../../hello.exe
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=4096
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=0
+mem_heap_B=12288
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=0
+mem_heap_B=151552
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=0
+mem_heap_B=163840
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=0
+mem_heap_B=167936
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=0
+mem_heap_B=172032
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=0
+mem_heap_B=180224
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=0
+mem_heap_B=184320
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=0
+mem_heap_B=184320
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=3214
+mem_heap_B=192512
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n2: 192512 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 184320 0xFFFFFFFFFFFFFFFF: ???
+ n1: 8192 0x4018429: mmap (syscall-template.S:82)
+  n1: 8192 0x40168AC: __libc_memalign (dl-minimal.c:79)
+   n1: 8192 0x400802A: _dl_init_paths (dl-load.c:745)
+    n1: 8192 0x4003352: dl_main (rtld.c:1432)
+     n1: 8192 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+      n1: 8192 0x4005363: _dl_start (rtld.c:338)
+       n1: 8192 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+        n1: 8192 0x1: ???
+         n1: 8192 0x7FF0007AD: ???
+          n1: 8192 0x7FF0007BD: ???
+           n0: 8192 0x7FF0007BF: ???
+#-----------
+snapshot=10
+#-----------
+time=7376
+mem_heap_B=2297856
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=7458
+mem_heap_B=2306048
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=11039
+mem_heap_B=2330624
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=13776
+mem_heap_B=8663040
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=13858
+mem_heap_B=8671232
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=14472
+mem_heap_B=12865536
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=17287
+mem_heap_B=12869632
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=17941
+mem_heap_B=16797696
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=18003
+mem_heap_B=16822272
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=18385
+mem_heap_B=16842752
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n2: 16842752 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 16658432 0x4018429: mmap (syscall-template.S:82)
+  n1: 12365824 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n2: 12365824 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 10260480 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 10260480 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 10260480 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 10260480 0x400350B: dl_main (rtld.c:1826)
+        n1: 10260480 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 10260480 0x4005363: _dl_start (rtld.c:338)
+          n1: 10260480 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 10260480 0x1: ???
+            n1: 10260480 0x7FF0007AD: ???
+             n1: 10260480 0x7FF0007BD: ???
+              n0: 10260480 0x7FF0007BF: ???
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4214784 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4214784 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4214784 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4214784 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 4214784 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4214784 0x400350B: dl_main (rtld.c:1826)
+        n1: 4214784 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4214784 0x4005363: _dl_start (rtld.c:338)
+          n1: 4214784 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4214784 0x1: ???
+            n1: 4214784 0x7FF0007AD: ???
+             n1: 4214784 0x7FF0007BD: ???
+              n0: 4214784 0x7FF0007BF: ???
+  n0: 77824 in 3 places, all below massif's threshold (01.00%)
+ n0: 184320 0xFFFFFFFFFFFFFFFF: ???
+#-----------
+snapshot=20
+#-----------
+time=23056
+mem_heap_B=19058688
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=23118
+mem_heap_B=19066880
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=23720
+mem_heap_B=19083264
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=27597
+mem_heap_B=21213184
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=27659
+mem_heap_B=21221376
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=35918
+mem_heap_B=21225472
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=46255
+mem_heap_B=21229568
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=154776
+mem_heap_B=21209088
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n2: 21209088 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 21024768 0x4018429: mmap (syscall-template.S:82)
+  n1: 16711680 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n2: 16711680 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 14606336 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 14606336 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 14606336 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 14606336 0x400350B: dl_main (rtld.c:1826)
+        n1: 14606336 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 14606336 0x4005363: _dl_start (rtld.c:338)
+          n1: 14606336 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 14606336 0x1: ???
+            n1: 14606336 0x7FF0007AD: ???
+             n1: 14606336 0x7FF0007BD: ???
+              n0: 14606336 0x7FF0007BF: ???
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4231168 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4231168 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4231168 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4231168 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 4231168 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4231168 0x400350B: dl_main (rtld.c:1826)
+        n1: 4231168 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4231168 0x4005363: _dl_start (rtld.c:338)
+          n1: 4231168 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4231168 0x1: ???
+            n1: 4231168 0x7FF0007AD: ???
+             n1: 4231168 0x7FF0007BD: ???
+              n0: 4231168 0x7FF0007BF: ???
+  n0: 81920 in 3 places, all below massif's threshold (01.00%)
+ n0: 184320 in 1 place, below massif's threshold (01.00%)
+#-----------
+snapshot=28
+#-----------
+time=154776
+mem_heap_B=21204992
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=173264
+mem_heap_B=29597696
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=233482
+mem_heap_B=29732864
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=291436
+mem_heap_B=29736960
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=306634
+mem_heap_B=29736960
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n3: 29736960 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 21020672 0x4018429: mmap (syscall-template.S:82)
+  n1: 16711680 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n2: 16711680 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 14606336 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 14606336 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 14606336 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 14606336 0x400350B: dl_main (rtld.c:1826)
+        n1: 14606336 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 14606336 0x4005363: _dl_start (rtld.c:338)
+          n1: 14606336 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 14606336 0x1: ???
+            n1: 14606336 0x7FF0007AD: ???
+             n1: 14606336 0x7FF0007BD: ???
+              n0: 14606336 0x7FF0007BF: ???
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4231168 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4231168 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4231168 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4231168 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 4231168 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4231168 0x400350B: dl_main (rtld.c:1826)
+        n1: 4231168 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4231168 0x4005363: _dl_start (rtld.c:338)
+          n1: 4231168 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4231168 0x1: ???
+            n1: 4231168 0x7FF0007AD: ???
+             n1: 4231168 0x7FF0007BD: ???
+              n0: 4231168 0x7FF0007BF: ???
+  n0: 77824 in 3 places, all below massif's threshold (01.00%)
+ n2: 8396800 0x5321169: mmap (syscall-template.S:82)
+  n1: 8392704 0x55F8A2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+   n1: 8392704 0x400F304: call_init.part.0 (dl-init.c:85)
+    n1: 8392704 0x400F3DD: _dl_init (dl-init.c:52)
+     n1: 8392704 0x40016E8: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+      n1: 8392704 0x1: ???
+       n1: 8392704 0x7FF0007AD: ???
+        n1: 8392704 0x7FF0007BD: ???
+         n0: 8392704 0x7FF0007BF: ???
+  n0: 4096 in 1 place, below massif's threshold (01.00%)
+ n0: 319488 in 2 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=33
+#-----------
+time=306634
+mem_heap_B=29732864
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=310171
+mem_heap_B=29757440
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=314025
+mem_heap_B=31891456
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=314087
+mem_heap_B=31899648
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=319572
+mem_heap_B=34103296
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=319634
+mem_heap_B=34111488
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=320210
+mem_heap_B=34119680
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=349539
+mem_heap_B=34099200
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n3: 34099200 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 25387008 0x4018429: mmap (syscall-template.S:82)
+  n1: 21049344 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n3: 21049344 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 16809984 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 16809984 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 16809984 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 14606336 0x400350B: dl_main (rtld.c:1826)
+        n1: 14606336 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 14606336 0x4005363: _dl_start (rtld.c:338)
+          n1: 14606336 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 14606336 0x1: ???
+            n1: 14606336 0x7FF0007AD: ???
+             n1: 14606336 0x7FF0007BD: ???
+              n0: 14606336 0x7FF0007BF: ???
+       n1: 2203648 0x40138A7: dl_open_worker (dl-open.c:262)
+        n1: 2203648 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 2203648 0x4013318: _dl_open (dl-open.c:639)
+          n1: 2203648 0x5361700: do_dlopen (dl-libc.c:89)
+           n1: 2203648 0x400F174: _dl_catch_error (dl-error.c:178)
+            n1: 2203648 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+             n1: 2203648 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+              n1: 2203648 0x533757B: __nss_lookup_function (nsswitch.c:474)
+               n1: 2203648 0x533778A: __nss_lookup (nsswitch.c:202)
+                n1: 2203648 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+                 n1: 2203648 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2203648 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2203648 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 2134016 0x4013849: dl_open_worker (dl-open.c:225)
+     n1: 2134016 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2134016 0x4013318: _dl_open (dl-open.c:639)
+       n1: 2134016 0x5361700: do_dlopen (dl-libc.c:89)
+        n1: 2134016 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 2134016 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+          n1: 2134016 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+           n1: 2134016 0x533757B: __nss_lookup_function (nsswitch.c:474)
+            n1: 2134016 0x533778A: __nss_lookup (nsswitch.c:202)
+             n1: 2134016 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+              n1: 2134016 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2134016 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2134016 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4239360 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4239360 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4239360 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4239360 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 4239360 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4231168 0x400350B: dl_main (rtld.c:1826)
+        n1: 4231168 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4231168 0x4005363: _dl_start (rtld.c:338)
+          n1: 4231168 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4231168 0x1: ???
+            n1: 4231168 0x7FF0007AD: ???
+             n1: 4231168 0x7FF0007BD: ???
+              n0: 4231168 0x7FF0007BF: ???
+       n0: 8192 in 1 place, below massif's threshold (01.00%)
+  n0: 98304 in 3 places, all below massif's threshold (01.00%)
+ n2: 8392704 0x5321169: mmap (syscall-template.S:82)
+  n1: 8392704 0x55F8A2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+   n1: 8392704 0x400F304: call_init.part.0 (dl-init.c:85)
+    n1: 8392704 0x400F3DD: _dl_init (dl-init.c:52)
+     n1: 8392704 0x40016E8: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+      n1: 8392704 0x1: ???
+       n1: 8392704 0x7FF0007AD: ???
+        n1: 8392704 0x7FF0007BD: ???
+         n0: 8392704 0x7FF0007BF: ???
+  n0: 0 in 1 place, below massif's threshold (01.00%)
+ n0: 319488 in 2 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=41
+#-----------
+time=349539
+mem_heap_B=34095104
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=357889
+mem_heap_B=34119680
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=361700
+mem_heap_B=36265984
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=361762
+mem_heap_B=36274176
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=369189
+mem_heap_B=38424576
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=369251
+mem_heap_B=38432768
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=396477
+mem_heap_B=38412288
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n3: 38412288 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 29700096 0x4018429: mmap (syscall-template.S:82)
+  n1: 25346048 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n3: 25346048 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 18960384 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 18960384 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 18960384 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 14606336 0x400350B: dl_main (rtld.c:1826)
+        n1: 14606336 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 14606336 0x4005363: _dl_start (rtld.c:338)
+          n1: 14606336 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 14606336 0x1: ???
+            n1: 14606336 0x7FF0007AD: ???
+             n1: 14606336 0x7FF0007BD: ???
+              n0: 14606336 0x7FF0007BF: ???
+       n1: 4354048 0x40138A7: dl_open_worker (dl-open.c:262)
+        n1: 4354048 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 4354048 0x4013318: _dl_open (dl-open.c:639)
+          n1: 4354048 0x5361700: do_dlopen (dl-libc.c:89)
+           n1: 4354048 0x400F174: _dl_catch_error (dl-error.c:178)
+            n1: 4354048 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+             n1: 4354048 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+              n2: 4354048 0x533757B: __nss_lookup_function (nsswitch.c:474)
+               n1: 2203648 0x533778A: __nss_lookup (nsswitch.c:202)
+                n1: 2203648 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+                 n1: 2203648 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2203648 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2203648 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+               n1: 2150400 0x621A63D: ???
+                n1: 2150400 0x52EFCFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+                 n1: 2150400 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2150400 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2150400 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 4280320 0x4013849: dl_open_worker (dl-open.c:225)
+     n1: 4280320 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 4280320 0x4013318: _dl_open (dl-open.c:639)
+       n1: 4280320 0x5361700: do_dlopen (dl-libc.c:89)
+        n1: 4280320 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 4280320 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+          n1: 4280320 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+           n2: 4280320 0x533757B: __nss_lookup_function (nsswitch.c:474)
+            n1: 2146304 0x621A63D: ???
+             n1: 2146304 0x52EFCFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+              n1: 2146304 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2146304 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2146304 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+            n1: 2134016 0x533778A: __nss_lookup (nsswitch.c:202)
+             n1: 2134016 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+              n1: 2134016 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2134016 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2134016 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4239360 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4239360 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4239360 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4239360 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 4239360 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4231168 0x400350B: dl_main (rtld.c:1826)
+        n1: 4231168 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4231168 0x4005363: _dl_start (rtld.c:338)
+          n1: 4231168 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4231168 0x1: ???
+            n1: 4231168 0x7FF0007AD: ???
+             n1: 4231168 0x7FF0007BD: ???
+              n0: 4231168 0x7FF0007BF: ???
+       n0: 8192 in 1 place, below massif's threshold (01.00%)
+  n0: 114688 in 3 places, all below massif's threshold (01.00%)
+ n2: 8392704 0x5321169: mmap (syscall-template.S:82)
+  n1: 8392704 0x55F8A2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+   n1: 8392704 0x400F304: call_init.part.0 (dl-init.c:85)
+    n1: 8392704 0x400F3DD: _dl_init (dl-init.c:52)
+     n1: 8392704 0x40016E8: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+      n1: 8392704 0x1: ???
+       n1: 8392704 0x7FF0007AD: ???
+        n1: 8392704 0x7FF0007BD: ???
+         n0: 8392704 0x7FF0007BF: ???
+  n0: 0 in 1 place, below massif's threshold (01.00%)
+ n0: 319488 in 2 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=48
+#-----------
+time=396477
+mem_heap_B=38408192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=409692
+mem_heap_B=38412288
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=438272
+mem_heap_B=38408192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=452410
+mem_heap_B=38412288
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=484720
+mem_heap_B=38408192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=490141
+mem_heap_B=38412288
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=512824
+mem_heap_B=38408192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=514291
+mem_heap_B=38412288
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=545400
+mem_heap_B=38408192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=547599
+mem_heap_B=46800896
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n3: 46800896 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 29696000 0x4018429: mmap (syscall-template.S:82)
+  n1: 25346048 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n3: 25346048 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 18960384 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 18960384 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 18960384 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 14606336 0x400350B: dl_main (rtld.c:1826)
+        n1: 14606336 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 14606336 0x4005363: _dl_start (rtld.c:338)
+          n1: 14606336 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 14606336 0x1: ???
+            n1: 14606336 0x7FF0007AD: ???
+             n1: 14606336 0x7FF0007BD: ???
+              n0: 14606336 0x7FF0007BF: ???
+       n1: 4354048 0x40138A7: dl_open_worker (dl-open.c:262)
+        n1: 4354048 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 4354048 0x4013318: _dl_open (dl-open.c:639)
+          n1: 4354048 0x5361700: do_dlopen (dl-libc.c:89)
+           n1: 4354048 0x400F174: _dl_catch_error (dl-error.c:178)
+            n1: 4354048 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+             n1: 4354048 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+              n2: 4354048 0x533757B: __nss_lookup_function (nsswitch.c:474)
+               n1: 2203648 0x533778A: __nss_lookup (nsswitch.c:202)
+                n1: 2203648 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+                 n1: 2203648 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2203648 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2203648 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+               n1: 2150400 0x621A63D: ???
+                n1: 2150400 0x52EFCFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+                 n1: 2150400 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2150400 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2150400 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 4280320 0x4013849: dl_open_worker (dl-open.c:225)
+     n1: 4280320 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 4280320 0x4013318: _dl_open (dl-open.c:639)
+       n1: 4280320 0x5361700: do_dlopen (dl-libc.c:89)
+        n1: 4280320 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 4280320 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+          n1: 4280320 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+           n2: 4280320 0x533757B: __nss_lookup_function (nsswitch.c:474)
+            n1: 2146304 0x621A63D: ???
+             n1: 2146304 0x52EFCFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+              n1: 2146304 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2146304 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2146304 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+            n1: 2134016 0x533778A: __nss_lookup (nsswitch.c:202)
+             n1: 2134016 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+              n1: 2134016 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2134016 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2134016 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4239360 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4239360 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4239360 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4239360 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 4239360 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4231168 0x400350B: dl_main (rtld.c:1826)
+        n1: 4231168 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4231168 0x4005363: _dl_start (rtld.c:338)
+          n1: 4231168 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4231168 0x1: ???
+            n1: 4231168 0x7FF0007AD: ???
+             n1: 4231168 0x7FF0007BD: ???
+              n0: 4231168 0x7FF0007BF: ???
+       n0: 8192 in 1 place, below massif's threshold (01.00%)
+  n0: 110592 in 3 places, all below massif's threshold (01.00%)
+ n2: 16785408 0x5321169: mmap (syscall-template.S:82)
+  n2: 16785408 0x55F8A2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+   n1: 8392704 0x400F304: call_init.part.0 (dl-init.c:85)
+    n1: 8392704 0x400F3DD: _dl_init (dl-init.c:52)
+     n1: 8392704 0x40016E8: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+      n1: 8392704 0x1: ???
+       n1: 8392704 0x7FF0007AD: ???
+        n1: 8392704 0x7FF0007BD: ???
+         n0: 8392704 0x7FF0007BF: ???
+   n1: 8392704 0x4C2E2FD: sandbox_execute (in /usr/lib/libsandbox.so.0.3.5)
+    n0: 8392704 0x400997: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+  n0: 0 in 2 places, all below massif's threshold (01.00%)
+ n0: 319488 in 2 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=58
+#-----------
+time=548660
+mem_heap_B=55193600
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=3263208
+mem_heap_B=55197696
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=3281924
+mem_heap_B=55197696
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=peak
+n3: 55197696 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n3: 29696000 0x4018429: mmap (syscall-template.S:82)
+  n1: 25346048 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+   n3: 25346048 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 18960384 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 18960384 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 18960384 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 14606336 0x400350B: dl_main (rtld.c:1826)
+        n1: 14606336 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 14606336 0x4005363: _dl_start (rtld.c:338)
+          n1: 14606336 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 14606336 0x1: ???
+            n1: 14606336 0x7FF0007AD: ???
+             n1: 14606336 0x7FF0007BD: ???
+              n0: 14606336 0x7FF0007BF: ???
+       n1: 4354048 0x40138A7: dl_open_worker (dl-open.c:262)
+        n1: 4354048 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 4354048 0x4013318: _dl_open (dl-open.c:639)
+          n1: 4354048 0x5361700: do_dlopen (dl-libc.c:89)
+           n1: 4354048 0x400F174: _dl_catch_error (dl-error.c:178)
+            n1: 4354048 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+             n1: 4354048 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+              n2: 4354048 0x533757B: __nss_lookup_function (nsswitch.c:474)
+               n1: 2203648 0x533778A: __nss_lookup (nsswitch.c:202)
+                n1: 2203648 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+                 n1: 2203648 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2203648 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2203648 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+               n1: 2150400 0x621A63D: ???
+                n1: 2150400 0x52EFCFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+                 n1: 2150400 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+                  n1: 2150400 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                   n0: 2150400 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 4280320 0x4013849: dl_open_worker (dl-open.c:225)
+     n1: 4280320 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 4280320 0x4013318: _dl_open (dl-open.c:639)
+       n1: 4280320 0x5361700: do_dlopen (dl-libc.c:89)
+        n1: 4280320 0x400F174: _dl_catch_error (dl-error.c:178)
+         n1: 4280320 0x53617C2: __libc_dlopen_mode (dl-libc.c:48)
+          n1: 4280320 0x5336B1C: nss_load_library.isra.1 (nsswitch.c:372)
+           n2: 4280320 0x533757B: __nss_lookup_function (nsswitch.c:474)
+            n1: 2146304 0x621A63D: ???
+             n1: 2146304 0x52EFCFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+              n1: 2146304 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2146304 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2146304 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+            n1: 2134016 0x533778A: __nss_lookup (nsswitch.c:202)
+             n1: 2134016 0x52EFE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+              n1: 2134016 0x52EF5F1: getpwuid (getXXbyYY.c:117)
+               n1: 2134016 0x4C2DD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+                n0: 2134016 0x400969: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+    n1: 2105344 0x400188C: map_doit (rtld.c:633)
+     n1: 2105344 0x400F174: _dl_catch_error (dl-error.c:178)
+      n1: 2105344 0x4000ECD: do_preload (rtld.c:822)
+       n1: 2105344 0x4004118: dl_main (rtld.c:1717)
+        n1: 2105344 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 2105344 0x4005363: _dl_start (rtld.c:338)
+          n1: 2105344 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 2105344 0x1: ???
+            n1: 2105344 0x7FF0007AD: ???
+             n1: 2105344 0x7FF0007BD: ???
+              n0: 2105344 0x7FF0007BF: ???
+  n1: 4239360 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+   n1: 4239360 0x4008698: _dl_map_object (dl-load.c:2568)
+    n1: 4239360 0x400CFE0: openaux (dl-deps.c:65)
+     n1: 4239360 0x400F174: _dl_catch_error (dl-error.c:178)
+      n2: 4239360 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+       n1: 4231168 0x400350B: dl_main (rtld.c:1826)
+        n1: 4231168 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+         n1: 4231168 0x4005363: _dl_start (rtld.c:338)
+          n1: 4231168 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+           n1: 4231168 0x1: ???
+            n1: 4231168 0x7FF0007AD: ???
+             n1: 4231168 0x7FF0007BD: ???
+              n0: 4231168 0x7FF0007BF: ???
+       n0: 8192 in 1 place, below massif's threshold (01.00%)
+  n0: 110592 in 3 places, all below massif's threshold (01.00%)
+ n2: 25182208 0x5321169: mmap (syscall-template.S:82)
+  n3: 25178112 0x55F8A2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+   n1: 8392704 0x400F304: call_init.part.0 (dl-init.c:85)
+    n1: 8392704 0x400F3DD: _dl_init (dl-init.c:52)
+     n1: 8392704 0x40016E8: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+      n1: 8392704 0x1: ???
+       n1: 8392704 0x7FF0007AD: ???
+        n1: 8392704 0x7FF0007BD: ???
+         n0: 8392704 0x7FF0007BF: ???
+   n1: 8392704 0x4C2E2FD: sandbox_execute (in /usr/lib/libsandbox.so.0.3.5)
+    n0: 8392704 0x400997: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+   n1: 8392704 0x4C2E322: sandbox_execute (in /usr/lib/libsandbox.so.0.3.5)
+    n0: 8392704 0x400997: main (in /home/ubuntu/TR-OJA-201209A.git/perf/stime.exe)
+  n0: 4096 in 2 places, all below massif's threshold (01.00%)
+ n0: 319488 in 2 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=61
+#-----------
+time=3281924
+mem_heap_B=55193600
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=3285265
+mem_heap_B=46800896
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=3285731
+mem_heap_B=38408192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=3286184
+mem_heap_B=30015488
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=3291032
+mem_heap_B=27881472
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=3293538
+mem_heap_B=25735168
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=3294127
+mem_heap_B=23531520
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=3294850
+mem_heap_B=21381120
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

@@ -9,7 +9,7 @@
 
 .PHONY: all clean
 
-TARGETS = case1/hello.exe case2/malloc.exe case3/foo/fopen.exe case4/hello.exe case5/malloc.exe case6/fopen.exe case7/malloc.exe case8/write.exe perf/rlimit.exe perf/slimit.exe perf/loop.exe
+TARGETS = case1/hello.exe case2/malloc.exe case3/foo/fopen.exe case4/hello.exe case5/malloc.exe case6/fopen.exe case7/malloc.exe case8/write.exe perf/rtime.exe perf/stime.exe perf/loop.exe perf/hello.exe
 
 all: $(TARGETS)
 	chmod 0600 case3/secret.in
@@ -18,7 +18,7 @@ clean:
 	rm -f $(TARGETS)
 	rm -rf $(TARGETS:.exe=.exe.dSYM)
 
-perf/slimit.exe: perf/slimit.c
+perf/stime.exe: perf/stime.c
 	$(CC) -Wall -O1 -o $(@) $(<) -lsandbox
 
 %.exe: %.c

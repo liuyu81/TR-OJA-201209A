@@ -68,7 +68,7 @@ main (int argc, char* argv[])
     };
     /* verbose statistics */
     double time = tv2ms(ru.ru_utime) + tv2ms(ru.ru_stime);
-    fprintf(stderr, "cpu: %.3lf sec\n", time / 1000.);
+    fprintf(stdout, "cpu: %.3lf sec\n", time / 1000.);
     return EX_OK;
   }
   else

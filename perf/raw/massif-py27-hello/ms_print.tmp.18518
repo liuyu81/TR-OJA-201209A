@@ -1,0 +1,1599 @@
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0        2,560,000        2,560,000             0            0
+  1        100,279       30,035,968       30,035,968             0            0
+  2        551,015       30,015,488       30,015,488             0            0
+100.00% (30,015,488B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->89.21% (26,775,552B) 0x4018429: mmap (syscall-template.S:82)
+| ->87.99% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->87.99% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->80.98% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->80.98% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->80.98% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->80.98% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->80.98% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->80.98% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->80.98% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->80.98% (24,305,664B) 0x2: ???
+| |   |               ->80.98% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->80.98% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->80.98% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->80.98% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->07.01% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->07.01% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->07.01% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->07.01% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->07.01% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->07.01% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->07.01% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->07.01% (2,105,344B) 0x2: ???
+| |                   ->07.01% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->07.01% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->07.01% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->07.01% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.21% (364,544B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.79% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  3        638,123       30,146,560       30,146,560             0            0
+  4        708,918       30,412,800       30,412,800             0            0
+  5      2,691,919       30,593,024       30,593,024             0            0
+  6      3,657,528       30,859,264       30,859,264             0            0
+  7      3,939,063       30,863,360       30,863,360             0            0
+  8      4,230,887       30,863,360       30,863,360             0            0
+100.00% (30,863,360B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->86.74% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->85.57% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->85.57% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->78.75% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->78.75% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->78.75% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->78.75% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->78.75% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->78.75% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->78.75% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->78.75% (24,305,664B) 0x2: ???
+| |   |               ->78.75% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->78.75% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->78.75% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->78.75% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.82% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.82% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.82% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.82% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.82% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.82% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.82% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.82% (2,105,344B) 0x2: ???
+| |                   ->06.82% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.82% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.82% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.82% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.17% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.50% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->01.74% (536,576B) 0x5E70169: mmap (syscall-template.S:82)
+| ->01.73% (532,480B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->01.73% (532,480B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.73% (532,480B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |     ->01.73% (532,480B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |       ->01.73% (532,480B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |         ->01.73% (532,480B) in 2 places, all below massif's threshold (01.00%)
+| |           
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.02% (315,392B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.02% (315,392B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.02% (315,392B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.02% (315,392B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.02% (315,392B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.02% (315,392B) in 2 places, all below massif's threshold (01.00%)
+            
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  9      4,250,983       30,863,360       30,863,360             0            0
+ 10      4,819,519       30,859,264       30,859,264             0            0
+ 11      4,892,333       30,998,528       30,998,528             0            0
+ 12      5,526,423       31,002,624       31,002,624             0            0
+ 13      5,725,201       30,998,528       30,998,528             0            0
+ 14      5,821,834       30,998,528       30,998,528             0            0
+ 15      5,901,928       31,203,328       31,203,328             0            0
+100.00% (31,203,328B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->85.80% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->84.64% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->84.64% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->77.89% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->77.89% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->77.89% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->77.89% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->77.89% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->77.89% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->77.89% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->77.89% (24,305,664B) 0x2: ???
+| |   |               ->77.89% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->77.89% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->77.89% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->77.89% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.75% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.75% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.75% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.75% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.75% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.75% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.75% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.75% (2,105,344B) 0x2: ???
+| |                   ->06.75% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.75% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.75% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.75% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.16% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.38% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->02.36% (737,280B) 0x5E70169: mmap (syscall-template.S:82)
+| ->02.35% (733,184B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->02.35% (733,184B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.71% (532,480B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.71% (532,480B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   |   ->01.71% (532,480B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   |     ->01.71% (532,480B) in 2 places, all below massif's threshold (01.00%)
+| |   |       
+| |   ->00.64% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.46% (454,656B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.46% (454,656B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.46% (454,656B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.46% (454,656B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.46% (454,656B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.02% (319,488B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.02% (319,488B) in 2 places, all below massif's threshold (01.00%)
+          |   
+          ->00.43% (135,168B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 16      5,988,137       31,203,328       31,203,328             0            0
+100.00% (31,203,328B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->85.80% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->84.64% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->84.64% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->77.89% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->77.89% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->77.89% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->77.89% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->77.89% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->77.89% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->77.89% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->77.89% (24,305,664B) 0x2: ???
+| |   |               ->77.89% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->77.89% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->77.89% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->77.89% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.75% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.75% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.75% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.75% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.75% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.75% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.75% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.75% (2,105,344B) 0x2: ???
+| |                   ->06.75% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.75% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.75% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.75% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.16% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.38% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->02.36% (737,280B) 0x5E70169: mmap (syscall-template.S:82)
+| ->02.35% (733,184B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->02.35% (733,184B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.71% (532,480B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.71% (532,480B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   |   ->01.71% (532,480B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   |     ->01.71% (532,480B) in 2 places, all below massif's threshold (01.00%)
+| |   |       
+| |   ->00.64% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.46% (454,656B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.46% (454,656B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.46% (454,656B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.46% (454,656B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.46% (454,656B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.02% (319,488B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.02% (319,488B) in 2 places, all below massif's threshold (01.00%)
+          |   
+          ->00.43% (135,168B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 17      6,016,039       31,203,328       31,203,328             0            0
+ 18      6,237,079       31,199,232       31,199,232             0            0
+ 19      6,311,701       31,199,232       31,199,232             0            0
+ 20      6,411,070       31,199,232       31,199,232             0            0
+ 21      7,037,882       31,203,328       31,203,328             0            0
+ 22      7,527,954       31,199,232       31,199,232             0            0
+ 23      7,570,611       31,203,328       31,203,328             0            0
+100.00% (31,203,328B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->85.80% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->84.64% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->84.64% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->77.89% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->77.89% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->77.89% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->77.89% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->77.89% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->77.89% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->77.89% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->77.89% (24,305,664B) 0x2: ???
+| |   |               ->77.89% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->77.89% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->77.89% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->77.89% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.75% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.75% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.75% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.75% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.75% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.75% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.75% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.75% (2,105,344B) 0x2: ???
+| |                   ->06.75% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.75% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.75% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.75% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.16% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.38% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->02.36% (737,280B) 0x5E70169: mmap (syscall-template.S:82)
+| ->02.35% (733,184B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->02.35% (733,184B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.71% (532,480B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.71% (532,480B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   |   ->01.71% (532,480B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   |     ->01.71% (532,480B) in 2 places, all below massif's threshold (01.00%)
+| |   |       
+| |   ->00.64% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.46% (454,656B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.46% (454,656B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.46% (454,656B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.46% (454,656B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.46% (454,656B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.02% (319,488B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.02% (319,488B) in 2 places, all below massif's threshold (01.00%)
+          |   
+          ->00.43% (135,168B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 24      7,780,761       31,469,568       31,469,568             0            0
+ 25      7,979,197       31,465,472       31,465,472             0            0
+ 26      7,994,212       31,469,568       31,469,568             0            0
+ 27      8,084,348       31,465,472       31,465,472             0            0
+ 28      8,102,984       31,469,568       31,469,568             0            0
+ 29      8,313,852       31,465,472       31,465,472             0            0
+ 30     10,130,024       31,600,640       31,600,640             0            0
+ 31     11,391,429       31,604,736       31,604,736             0            0
+ 32     11,481,733       31,600,640       31,600,640             0            0
+ 33     11,747,766       31,604,736       31,604,736             0            0
+ 34     11,897,498       31,600,640       31,600,640             0            0
+ 35     12,590,763       31,604,736       31,604,736             0            0
+ 36     12,895,711       31,600,640       31,600,640             0            0
+ 37     13,246,103       31,604,736       31,604,736             0            0
+ 38     13,401,697       31,600,640       31,600,640             0            0
+ 39     13,420,488       31,604,736       31,604,736             0            0
+ 40     13,590,916       31,600,640       31,600,640             0            0
+ 41     13,692,570       31,604,736       31,604,736             0            0
+100.00% (31,604,736B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->84.71% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->83.57% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->83.57% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->76.91% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->76.91% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->76.91% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->76.91% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->76.91% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->76.91% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->76.91% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->76.91% (24,305,664B) 0x2: ???
+| |   |               ->76.91% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->76.91% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->76.91% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->76.91% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.66% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.66% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.66% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.66% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.66% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.66% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.66% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.66% (2,105,344B) 0x2: ???
+| |                   ->06.66% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.66% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.66% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.66% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.14% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.25% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->03.18% (1,003,520B) 0x5E70169: mmap (syscall-template.S:82)
+| ->03.16% (999,424B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->03.16% (999,424B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->02.53% (798,720B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.68% (532,480B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->01.68% (532,480B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->01.68% (532,480B) in 2 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.84% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.64% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.87% (589,824B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.87% (589,824B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.87% (589,824B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.87% (589,824B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.87% (589,824B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.01% (319,488B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.01% (319,488B) in 2 places, all below massif's threshold (01.00%)
+          |   
+          ->00.86% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 42     13,999,942       31,600,640       31,600,640             0            0
+ 43     14,018,894       31,604,736       31,604,736             0            0
+ 44     14,167,304       31,600,640       31,600,640             0            0
+ 45     14,325,409       31,735,808       31,735,808             0            0
+ 46     14,487,845       32,002,048       32,002,048             0            0
+ 47     18,609,161       32,006,144       32,006,144             0            0
+ 48     18,912,817       32,006,144       32,006,144             0            0
+100.00% (32,006,144B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->83.64% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->82.52% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->82.52% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->75.94% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->75.94% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->75.94% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->75.94% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->75.94% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->75.94% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->75.94% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->75.94% (24,305,664B) 0x2: ???
+| |   |               ->75.94% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->75.94% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->75.94% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->75.94% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.58% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.58% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.58% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.58% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.58% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.58% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.58% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.58% (2,105,344B) 0x2: ???
+| |                   ->06.58% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.58% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.58% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.58% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.13% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.12% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->03.97% (1,269,760B) 0x5E70169: mmap (syscall-template.S:82)
+| ->03.95% (1,265,664B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->03.95% (1,265,664B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->03.33% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->02.50% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->02.50% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->02.50% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.83% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.63% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->02.27% (724,992B) 0x5E6C4D9: brk (brk.c:32)
+  ->02.27% (724,992B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->02.27% (724,992B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->02.27% (724,992B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->02.27% (724,992B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.42% (454,656B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.42% (454,656B) in 3 places, all below massif's threshold (01.00%)
+          |   
+          ->00.84% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 49     18,912,817       32,002,048       32,002,048             0            0
+ 50     30,771,927       32,006,144       32,006,144             0            0
+ 51     34,257,859       32,153,600       32,153,600             0            0
+ 52     38,944,717       32,149,504       32,149,504             0            0
+ 53     40,028,479       32,153,600       32,153,600             0            0
+ 54     41,563,652       32,149,504       32,149,504             0            0
+ 55     41,578,761       32,153,600       32,153,600             0            0
+ 56     42,012,783       32,149,504       32,149,504             0            0
+ 57     42,027,938       32,153,600       32,153,600             0            0
+ 58     42,461,896       32,149,504       32,149,504             0            0
+100.00% (32,149,504B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->83.27% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->82.15% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->82.15% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->75.60% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->75.60% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->75.60% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->75.60% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->75.60% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->75.60% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->75.60% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->75.60% (24,305,664B) 0x2: ???
+| |   |               ->75.60% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->75.60% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->75.60% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->75.60% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.55% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.55% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.55% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.55% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.55% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.55% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.55% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.55% (2,105,344B) 0x2: ???
+| |                   ->06.55% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.55% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.55% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.55% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.12% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->10.08% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->03.94% (1,265,664B) 0x5E70169: mmap (syscall-template.S:82)
+| ->03.94% (1,265,664B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->03.94% (1,265,664B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->03.31% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->02.48% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->02.48% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->02.48% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.83% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.62% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->02.71% (872,448B) 0x5E6C4D9: brk (brk.c:32)
+  ->02.71% (872,448B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->02.71% (872,448B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->02.71% (872,448B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->02.71% (872,448B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.87% (602,112B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.87% (602,112B) in 4 places, all below massif's threshold (01.00%)
+          |   
+          ->00.84% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 59     42,568,016       32,153,600       32,153,600             0            0
+ 60     42,630,202       32,153,600       32,153,600             0            0
+ 61     42,705,063       32,149,504       32,149,504             0            0
+ 62     42,779,533       33,759,232       33,759,232             0            0
+ 63     42,810,175       33,763,328       33,763,328             0            0
+ 64     42,864,600       33,763,328       33,763,328             0            0
+100.00% (33,763,328B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->79.29% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->78.22% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->78.22% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->71.99% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->71.99% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->71.99% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->71.99% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->71.99% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->71.99% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->71.99% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->71.99% (24,305,664B) 0x2: ???
+| |   |               ->71.99% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->71.99% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->71.99% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->71.99% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.24% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.24% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.24% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.24% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.24% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.24% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.24% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.24% (2,105,344B) 0x2: ???
+| |                   ->06.24% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.24% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.24% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.24% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.07% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->09.60% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->08.53% (2,879,488B) 0x5E70169: mmap (syscall-template.S:82)
+| ->04.77% (1,609,728B) 0x5DADDC4: _nl_load_locale_from_archive (loadarchive.c:228)
+| | ->04.77% (1,609,728B) 0x5DACE11: _nl_find_locale (findlocale.c:107)
+| |   ->04.77% (1,609,728B) 0x5DAC4F8: setlocale (setlocale.c:379)
+| |     ->04.77% (1,609,728B) 0x52D353: ??? (in /usr/bin/python2.7)
+| |       ->04.77% (1,609,728B) 0x4AA66B: Py_Main (in /usr/bin/python2.7)
+| |         ->04.77% (1,609,728B) 0x5DA176B: (below main) (libc-start.c:226)
+| |           
+| ->03.75% (1,265,664B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->03.75% (1,265,664B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->03.15% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->02.37% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->02.37% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->02.37% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.79% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.59% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.01% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->02.58% (872,448B) 0x5E6C4D9: brk (brk.c:32)
+  ->02.58% (872,448B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->02.58% (872,448B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->02.58% (872,448B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->02.58% (872,448B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.78% (602,112B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.78% (602,112B) in 4 places, all below massif's threshold (01.00%)
+          |   
+          ->00.80% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 65     42,889,419       33,763,328       33,763,328             0            0
+ 66     43,416,054       33,759,232       33,759,232             0            0
+ 67     43,926,373       33,763,328       33,763,328             0            0
+ 68     44,225,551       33,759,232       33,759,232             0            0
+ 69     44,443,963       33,898,496       33,898,496             0            0
+ 70     44,489,154       33,894,400       33,894,400             0            0
+ 71     44,689,546       33,898,496       33,898,496             0            0
+ 72     45,066,889       33,894,400       33,894,400             0            0
+ 73     45,230,632       33,898,496       33,898,496             0            0
+ 74     45,319,315       33,894,400       33,894,400             0            0
+100.00% (33,894,400B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->78.98% (26,771,456B) 0x4018429: mmap (syscall-template.S:82)
+| ->77.92% (26,411,008B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->77.92% (26,411,008B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->71.71% (24,305,664B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->71.71% (24,305,664B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->71.71% (24,305,664B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->71.71% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |       ->71.71% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |         ->71.71% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |           ->71.71% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |             ->71.71% (24,305,664B) 0x2: ???
+| |   |               ->71.71% (24,305,664B) 0x7FF0007A5: ???
+| |   |                 ->71.71% (24,305,664B) 0x7FF0007AC: ???
+| |   |                   ->71.71% (24,305,664B) 0x7FF0007BB: ???
+| |   |                     ->71.71% (24,305,664B) 0x7FF0007BD: ???
+| |   |                       
+| |   ->06.21% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->06.21% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.21% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->06.21% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->06.21% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->06.21% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->06.21% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->06.21% (2,105,344B) 0x2: ???
+| |                   ->06.21% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->06.21% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->06.21% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->06.21% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->01.06% (360,448B) in 4 places, all below massif's threshold (01.00%)
+|   
+->09.56% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->08.48% (2,875,392B) 0x5E70169: mmap (syscall-template.S:82)
+| ->04.75% (1,609,728B) 0x5DADDC4: _nl_load_locale_from_archive (loadarchive.c:228)
+| | ->04.75% (1,609,728B) 0x5DACE11: _nl_find_locale (findlocale.c:107)
+| |   ->04.75% (1,609,728B) 0x5DAC4F8: setlocale (setlocale.c:379)
+| |     ->04.75% (1,609,728B) 0x52D353: ??? (in /usr/bin/python2.7)
+| |       ->04.75% (1,609,728B) 0x4AA66B: Py_Main (in /usr/bin/python2.7)
+| |         ->04.75% (1,609,728B) 0x5DA176B: (below main) (libc-start.c:226)
+| |           
+| ->03.73% (1,265,664B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->03.73% (1,265,664B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->03.14% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->02.36% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->02.36% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->02.36% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.79% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.59% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->02.97% (1,007,616B) 0x5E6C4D9: brk (brk.c:32)
+  ->02.97% (1,007,616B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->02.97% (1,007,616B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->02.97% (1,007,616B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->02.97% (1,007,616B) 0x5E030B3: malloc (malloc.c:2924)
+          ->02.18% (737,280B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->02.18% (737,280B) in 5 places, all below massif's threshold (01.00%)
+          |   
+          ->00.80% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 75     45,346,455       36,036,608       36,036,608             0            0
+ 76     45,361,555       48,738,304       48,738,304             0            0
+ 77     45,665,734       57,139,200       57,139,200             0            0
+ 78     45,672,118       57,118,720       57,118,720             0            0
+100.00% (57,118,720B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->72.84% (41,603,072B) 0x4018429: mmap (syscall-template.S:82)
+| ->64.80% (37,015,552B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->64.80% (37,015,552B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->57.37% (32,768,000B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->57.37% (32,768,000B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->57.37% (32,768,000B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->42.55% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |     | ->42.55% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |     |   ->42.55% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |     |     ->42.55% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |     |       ->42.55% (24,305,664B) 0x2: ???
+| |   |     |         ->42.55% (24,305,664B) 0x7FF0007A5: ???
+| |   |     |           ->42.55% (24,305,664B) 0x7FF0007AC: ???
+| |   |     |             ->42.55% (24,305,664B) 0x7FF0007BB: ???
+| |   |     |               ->42.55% (24,305,664B) 0x7FF0007BD: ???
+| |   |     |                 
+| |   |     ->14.82% (8,462,336B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |   |       ->14.82% (8,462,336B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->14.82% (8,462,336B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |           ->14.82% (8,462,336B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |             ->14.82% (8,462,336B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |               ->14.82% (8,462,336B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |                 ->14.82% (8,462,336B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |                   ->14.82% (8,462,336B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |                     ->14.82% (8,462,336B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |                       ->14.82% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                         ->14.82% (8,462,336B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |                           ->14.82% (8,462,336B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |                             ->14.82% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                               ->14.82% (8,462,336B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                 ->14.82% (8,462,336B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                                   ->14.82% (8,462,336B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                     ->14.82% (8,462,336B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                       ->14.82% (8,462,336B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |                                         ->14.82% (8,462,336B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |                                           ->14.82% (8,462,336B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |                                             ->14.82% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                                               ->14.82% (8,462,336B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |                                                 ->14.82% (8,462,336B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |                                                   ->14.82% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                                                     
+| |   ->03.75% (2,142,208B) 0x4013849: dl_open_worker (dl-open.c:225)
+| |   | ->03.75% (2,142,208B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->03.75% (2,142,208B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |     ->03.75% (2,142,208B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |       ->03.75% (2,142,208B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->03.75% (2,142,208B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |           ->03.75% (2,142,208B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |             ->03.75% (2,142,208B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |               ->03.75% (2,142,208B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |                 ->03.75% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                   ->03.75% (2,142,208B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |                     ->03.75% (2,142,208B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |                       ->03.75% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                         ->03.75% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                           ->03.75% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                             ->03.75% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                               ->03.75% (2,142,208B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                 ->03.75% (2,142,208B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |                                   ->03.75% (2,142,208B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |                                     ->03.75% (2,142,208B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |                                       ->03.75% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                                         ->03.75% (2,142,208B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |                                           ->03.75% (2,142,208B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |                                             ->03.75% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                                               ->03.75% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                                 ->03.75% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                                                   ->03.75% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                                     
+| |   ->03.69% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->03.69% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->03.69% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->03.69% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->03.69% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->03.69% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->03.69% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->03.69% (2,105,344B) 0x2: ???
+| |                   ->03.69% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->03.69% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->03.69% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->03.69% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->07.44% (4,251,648B) 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+| | ->07.44% (4,251,648B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->07.44% (4,251,648B) 0x400CFE0: openaux (dl-deps.c:65)
+| |     ->07.44% (4,251,648B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->07.44% (4,251,648B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |         ->07.34% (4,194,304B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |         | ->07.34% (4,194,304B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |   ->07.34% (4,194,304B) 0x4013318: _dl_open (dl-open.c:639)
+| |         |     ->07.34% (4,194,304B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |         |       ->07.34% (4,194,304B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |         ->07.34% (4,194,304B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |         |           ->07.34% (4,194,304B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |         |             ->07.34% (4,194,304B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |         |               ->07.34% (4,194,304B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |         |                 ->07.34% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |                   ->07.34% (4,194,304B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |         |                     ->07.34% (4,194,304B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |         |                       ->07.34% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |                         ->07.34% (4,194,304B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |         |                           ->07.34% (4,194,304B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |         |                             ->07.34% (4,194,304B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |         |                               ->07.34% (4,194,304B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |         |                                 ->07.34% (4,194,304B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |         |                                   ->07.34% (4,194,304B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |         |                                     ->07.34% (4,194,304B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |         |                                       ->07.34% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |                                         ->07.34% (4,194,304B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |         |                                           ->07.34% (4,194,304B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |         |                                             ->07.34% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |                                               
+| |         ->00.10% (57,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         
+| ->00.59% (335,872B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->19.73% (11,268,096B) 0x5E70169: mmap (syscall-template.S:82)
+| ->14.69% (8,392,704B) 0x4C2FA2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+| | ->14.69% (8,392,704B) 0x400F304: call_init.part.0 (dl-init.c:85)
+| |   ->14.69% (8,392,704B) 0x400F3DD: _dl_init (dl-init.c:52)
+| |     ->14.69% (8,392,704B) 0x4013AD8: dl_open_worker (dl-open.c:549)
+| |       ->14.69% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         ->14.69% (8,392,704B) 0x4013318: _dl_open (dl-open.c:639)
+| |           ->14.69% (8,392,704B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |             ->14.69% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |               ->14.69% (8,392,704B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |                 ->14.69% (8,392,704B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |                   ->14.69% (8,392,704B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |                     ->14.69% (8,392,704B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |                       ->14.69% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |                         ->14.69% (8,392,704B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |                           ->14.69% (8,392,704B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |                             ->14.69% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |                               ->14.69% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |                                 ->14.69% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |                                   ->14.69% (8,392,704B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |                                     ->14.69% (8,392,704B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |                                       ->14.69% (8,392,704B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |                                         ->14.69% (8,392,704B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |                                           ->14.69% (8,392,704B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |                                             ->14.69% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |                                               ->14.69% (8,392,704B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |                                                 ->14.69% (8,392,704B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |                                                   ->14.69% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |                                                     ->14.69% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |                                                       ->14.69% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |                                                         
+| ->02.82% (1,609,728B) 0x5DADDC4: _nl_load_locale_from_archive (loadarchive.c:228)
+| | ->02.82% (1,609,728B) 0x5DACE11: _nl_find_locale (findlocale.c:107)
+| |   ->02.82% (1,609,728B) 0x5DAC4F8: setlocale (setlocale.c:379)
+| |     ->02.82% (1,609,728B) 0x52D353: ??? (in /usr/bin/python2.7)
+| |       ->02.82% (1,609,728B) 0x4AA66B: Py_Main (in /usr/bin/python2.7)
+| |         ->02.82% (1,609,728B) 0x5DA176B: (below main) (libc-start.c:226)
+| |           
+| ->02.22% (1,265,664B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->02.22% (1,265,664B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.86% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.40% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->01.40% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->01.40% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.47% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.35% (200,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->05.67% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->01.76% (1,007,616B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.76% (1,007,616B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.76% (1,007,616B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.76% (1,007,616B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.76% (1,007,616B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.29% (737,280B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.29% (737,280B) in 5 places, all below massif's threshold (01.00%)
+          |   
+          ->00.47% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 79     45,973,837       57,450,496       57,450,496             0            0
+ 80     46,144,247       57,454,592       57,454,592             0            0
+ 81     46,161,275       57,475,072       57,475,072             0            0
+ 82     46,212,289       61,816,832       61,816,832             0            0
+100.00% (61,816,832B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->74.36% (45,965,312B) 0x4018429: mmap (syscall-template.S:82)
+| ->66.90% (41,353,216B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->66.90% (41,353,216B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->56.57% (34,971,648B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->56.57% (34,971,648B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->56.57% (34,971,648B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->39.32% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |     | ->39.32% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |     |   ->39.32% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |     |     ->39.32% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |     |       ->39.32% (24,305,664B) 0x2: ???
+| |   |     |         ->39.32% (24,305,664B) 0x7FF0007A5: ???
+| |   |     |           ->39.32% (24,305,664B) 0x7FF0007AC: ???
+| |   |     |             ->39.32% (24,305,664B) 0x7FF0007BB: ???
+| |   |     |               ->39.32% (24,305,664B) 0x7FF0007BD: ???
+| |   |     |                 
+| |   |     ->17.25% (10,665,984B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |   |       ->17.25% (10,665,984B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->17.25% (10,665,984B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |           ->13.69% (8,462,336B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |           | ->13.69% (8,462,336B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |           |   ->13.69% (8,462,336B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |           |     ->13.69% (8,462,336B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |           |       ->13.69% (8,462,336B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |           |         ->13.69% (8,462,336B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |           |           ->13.69% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |           |             ->13.69% (8,462,336B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |           |               ->13.69% (8,462,336B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |           |                 ->13.69% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |           |                   ->13.69% (8,462,336B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |           |                     ->13.69% (8,462,336B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |           |                       ->13.69% (8,462,336B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |           |                         ->13.69% (8,462,336B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |           |                           ->13.69% (8,462,336B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |           |                             ->13.69% (8,462,336B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |           |                               ->13.69% (8,462,336B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |           |                                 ->13.69% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |           |                                   ->13.69% (8,462,336B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |           |                                     ->13.69% (8,462,336B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |           |                                       ->13.69% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |           |                                         
+| |   |           ->03.56% (2,203,648B) 0x5EB0700: do_dlopen (dl-libc.c:89)
+| |   |             ->03.56% (2,203,648B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |               ->03.56% (2,203,648B) 0x5EB07C2: __libc_dlopen_mode (dl-libc.c:48)
+| |   |                 ->03.56% (2,203,648B) 0x5E85B1C: nss_load_library.isra.1 (nsswitch.c:372)
+| |   |                   ->03.56% (2,203,648B) 0x5E8657B: __nss_lookup_function (nsswitch.c:474)
+| |   |                     ->03.56% (2,203,648B) 0x5E8678A: __nss_lookup (nsswitch.c:202)
+| |   |                       ->03.56% (2,203,648B) 0x5E3EE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+| |   |                         ->03.56% (2,203,648B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |                           ->03.56% (2,203,648B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |                             ->03.56% (2,203,648B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |                               ->03.56% (2,203,648B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |                                 ->03.56% (2,203,648B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                   ->03.56% (2,203,648B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                     ->03.56% (2,203,648B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                       ->03.56% (2,203,648B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |                                         ->03.56% (2,203,648B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |                                           ->03.56% (2,203,648B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |                                             ->03.56% (2,203,648B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |                                               
+| |   ->06.92% (4,276,224B) 0x4013849: dl_open_worker (dl-open.c:225)
+| |   | ->06.92% (4,276,224B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->06.92% (4,276,224B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |     ->03.47% (2,142,208B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |     | ->03.47% (2,142,208B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |     |   ->03.47% (2,142,208B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |     |     ->03.47% (2,142,208B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |     |       ->03.47% (2,142,208B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |     |         ->03.47% (2,142,208B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |     |           ->03.47% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |     |             ->03.47% (2,142,208B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |     |               ->03.47% (2,142,208B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |     |                 ->03.47% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |     |                   ->03.47% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |     |                     ->03.47% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |     |                       ->03.47% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |     |                         ->03.47% (2,142,208B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |     |                           ->03.47% (2,142,208B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |     |                             ->03.47% (2,142,208B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |     |                               ->03.47% (2,142,208B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |     |                                 ->03.47% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |     |                                   ->03.47% (2,142,208B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |     |                                     ->03.47% (2,142,208B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |     |                                       ->03.47% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |     |                                         ->03.47% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |     |                                           ->03.47% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |     |                                             ->03.47% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |     |                                               
+| |   |     ->03.45% (2,134,016B) 0x5EB0700: do_dlopen (dl-libc.c:89)
+| |   |       ->03.45% (2,134,016B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->03.45% (2,134,016B) 0x5EB07C2: __libc_dlopen_mode (dl-libc.c:48)
+| |   |           ->03.45% (2,134,016B) 0x5E85B1C: nss_load_library.isra.1 (nsswitch.c:372)
+| |   |             ->03.45% (2,134,016B) 0x5E8657B: __nss_lookup_function (nsswitch.c:474)
+| |   |               ->03.45% (2,134,016B) 0x5E8678A: __nss_lookup (nsswitch.c:202)
+| |   |                 ->03.45% (2,134,016B) 0x5E3EE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+| |   |                   ->03.45% (2,134,016B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |                     ->03.45% (2,134,016B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |                       ->03.45% (2,134,016B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |                         ->03.45% (2,134,016B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |                           ->03.45% (2,134,016B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                             ->03.45% (2,134,016B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                               ->03.45% (2,134,016B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                 ->03.45% (2,134,016B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |                                   ->03.45% (2,134,016B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |                                     ->03.45% (2,134,016B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |                                       ->03.45% (2,134,016B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |                                         
+| |   ->03.41% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->03.41% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->03.41% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->03.41% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->03.41% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->03.41% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->03.41% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->03.41% (2,105,344B) 0x2: ???
+| |                   ->03.41% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->03.41% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->03.41% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->03.41% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->06.89% (4,259,840B) 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+| | ->06.89% (4,259,840B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->06.89% (4,259,840B) 0x400CFE0: openaux (dl-deps.c:65)
+| |     ->06.89% (4,259,840B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.89% (4,259,840B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |         ->06.80% (4,202,496B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |         | ->06.80% (4,202,496B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |   ->06.80% (4,202,496B) 0x4013318: _dl_open (dl-open.c:639)
+| |         |     ->06.79% (4,194,304B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |         |     | ->06.79% (4,194,304B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |     |   ->06.79% (4,194,304B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |         |     |     ->06.79% (4,194,304B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |         |     |       ->06.79% (4,194,304B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |         |     |         ->06.79% (4,194,304B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |         |     |           ->06.79% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |     |             ->06.79% (4,194,304B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |         |     |               ->06.79% (4,194,304B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |         |     |                 ->06.79% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |     |                   ->06.79% (4,194,304B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |         |     |                     ->06.79% (4,194,304B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |         |     |                       ->06.79% (4,194,304B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |         |     |                         ->06.79% (4,194,304B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |         |     |                           ->06.79% (4,194,304B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |         |     |                             ->06.79% (4,194,304B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |         |     |                               ->06.79% (4,194,304B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |         |     |                                 ->06.79% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |     |                                   ->06.79% (4,194,304B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |         |     |                                     ->06.79% (4,194,304B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |         |     |                                       ->06.79% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |     |                                         
+| |         |     ->00.01% (8,192B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         |     
+| |         ->00.09% (57,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         
+| ->00.57% (352,256B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->18.77% (11,603,968B) 0x5E70169: mmap (syscall-template.S:82)
+| ->13.58% (8,392,704B) 0x4C2FA2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+| | ->13.58% (8,392,704B) 0x400F304: call_init.part.0 (dl-init.c:85)
+| |   ->13.58% (8,392,704B) 0x400F3DD: _dl_init (dl-init.c:52)
+| |     ->13.58% (8,392,704B) 0x4013AD8: dl_open_worker (dl-open.c:549)
+| |       ->13.58% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         ->13.58% (8,392,704B) 0x4013318: _dl_open (dl-open.c:639)
+| |           ->13.58% (8,392,704B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |             ->13.58% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |               ->13.58% (8,392,704B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |                 ->13.58% (8,392,704B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |                   ->13.58% (8,392,704B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |                     ->13.58% (8,392,704B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |                       ->13.58% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |                         ->13.58% (8,392,704B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |                           ->13.58% (8,392,704B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |                             ->13.58% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |                               ->13.58% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |                                 ->13.58% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |                                   ->13.58% (8,392,704B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |                                     ->13.58% (8,392,704B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |                                       ->13.58% (8,392,704B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |                                         ->13.58% (8,392,704B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |                                           ->13.58% (8,392,704B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |                                             ->13.58% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |                                               ->13.58% (8,392,704B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |                                                 ->13.58% (8,392,704B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |                                                   ->13.58% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |                                                     ->13.58% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |                                                       ->13.58% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |                                                         
+| ->02.60% (1,609,728B) 0x5DADDC4: _nl_load_locale_from_archive (loadarchive.c:228)
+| | ->02.60% (1,609,728B) 0x5DACE11: _nl_find_locale (findlocale.c:107)
+| |   ->02.60% (1,609,728B) 0x5DAC4F8: setlocale (setlocale.c:379)
+| |     ->02.60% (1,609,728B) 0x52D353: ??? (in /usr/bin/python2.7)
+| |       ->02.60% (1,609,728B) 0x4AA66B: Py_Main (in /usr/bin/python2.7)
+| |         ->02.60% (1,609,728B) 0x5DA176B: (below main) (libc-start.c:226)
+| |           
+| ->02.59% (1,601,536B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->02.59% (1,601,536B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.72% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.29% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->01.29% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->01.29% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.43% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.87% (536,576B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->05.24% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->01.63% (1,007,616B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.63% (1,007,616B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.63% (1,007,616B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.63% (1,007,616B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.63% (1,007,616B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.19% (737,280B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.19% (737,280B) in 5 places, all below massif's threshold (01.00%)
+          |   
+          ->00.44% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 83     46,236,144       66,142,208       66,142,208             0            0
+ 84     46,273,865       66,129,920       66,129,920             0            0
+100.00% (66,129,920B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->76.03% (50,278,400B) 0x4018429: mmap (syscall-template.S:82)
+| ->69.03% (45,649,920B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->69.03% (45,649,920B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->56.14% (37,122,048B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->56.14% (37,122,048B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->56.14% (37,122,048B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->36.75% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |     | ->36.75% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |     |   ->36.75% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |     |     ->36.75% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |     |       ->36.75% (24,305,664B) 0x2: ???
+| |   |     |         ->36.75% (24,305,664B) 0x7FF0007A5: ???
+| |   |     |           ->36.75% (24,305,664B) 0x7FF0007AC: ???
+| |   |     |             ->36.75% (24,305,664B) 0x7FF0007BB: ???
+| |   |     |               ->36.75% (24,305,664B) 0x7FF0007BD: ???
+| |   |     |                 
+| |   |     ->19.38% (12,816,384B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |   |       ->19.38% (12,816,384B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->19.38% (12,816,384B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |           ->12.80% (8,462,336B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |           | ->12.80% (8,462,336B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |           |   ->12.80% (8,462,336B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |           |     ->12.80% (8,462,336B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |           |       ->12.80% (8,462,336B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |           |         ->12.80% (8,462,336B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |           |           ->12.80% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |           |             ->12.80% (8,462,336B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |           |               ->12.80% (8,462,336B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |           |                 ->12.80% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |           |                   ->12.80% (8,462,336B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |           |                     ->12.80% (8,462,336B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |           |                       ->12.80% (8,462,336B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |           |                         ->12.80% (8,462,336B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |           |                           ->12.80% (8,462,336B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |           |                             ->12.80% (8,462,336B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |           |                               ->12.80% (8,462,336B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |           |                                 ->12.80% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |           |                                   ->12.80% (8,462,336B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |           |                                     ->12.80% (8,462,336B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |           |                                       ->12.80% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |           |                                         
+| |   |           ->06.58% (4,354,048B) 0x5EB0700: do_dlopen (dl-libc.c:89)
+| |   |             ->06.58% (4,354,048B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |               ->06.58% (4,354,048B) 0x5EB07C2: __libc_dlopen_mode (dl-libc.c:48)
+| |   |                 ->06.58% (4,354,048B) 0x5E85B1C: nss_load_library.isra.1 (nsswitch.c:372)
+| |   |                   ->06.58% (4,354,048B) 0x5E8657B: __nss_lookup_function (nsswitch.c:474)
+| |   |                     ->03.33% (2,203,648B) 0x5E8678A: __nss_lookup (nsswitch.c:202)
+| |   |                     | ->03.33% (2,203,648B) 0x5E3EE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+| |   |                     |   ->03.33% (2,203,648B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |                     |     ->03.33% (2,203,648B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |                     |       ->03.33% (2,203,648B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |                     |         ->03.33% (2,203,648B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |                     |           ->03.33% (2,203,648B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                     |             ->03.33% (2,203,648B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                     |               ->03.33% (2,203,648B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                     |                 ->03.33% (2,203,648B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |                     |                   ->03.33% (2,203,648B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |                     |                     ->03.33% (2,203,648B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |                     |                       ->03.33% (2,203,648B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |                     |                         
+| |   |                     ->03.25% (2,150,400B) 0x770063D: ???
+| |   |                       ->03.25% (2,150,400B) 0x5E3ECFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+| |   |                         ->03.25% (2,150,400B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |                           ->03.25% (2,150,400B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |                             ->03.25% (2,150,400B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |                               ->03.25% (2,150,400B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |                                 ->03.25% (2,150,400B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                   ->03.25% (2,150,400B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                     ->03.25% (2,150,400B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                       ->03.25% (2,150,400B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |                                         ->03.25% (2,150,400B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |                                           ->03.25% (2,150,400B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |                                             ->03.25% (2,150,400B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |                                               
+| |   ->09.71% (6,422,528B) 0x4013849: dl_open_worker (dl-open.c:225)
+| |   | ->09.71% (6,422,528B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->09.71% (6,422,528B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |     ->06.47% (4,280,320B) 0x5EB0700: do_dlopen (dl-libc.c:89)
+| |   |     | ->06.47% (4,280,320B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |     |   ->06.47% (4,280,320B) 0x5EB07C2: __libc_dlopen_mode (dl-libc.c:48)
+| |   |     |     ->06.47% (4,280,320B) 0x5E85B1C: nss_load_library.isra.1 (nsswitch.c:372)
+| |   |     |       ->06.47% (4,280,320B) 0x5E8657B: __nss_lookup_function (nsswitch.c:474)
+| |   |     |         ->03.25% (2,146,304B) 0x770063D: ???
+| |   |     |         | ->03.25% (2,146,304B) 0x5E3ECFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+| |   |     |         |   ->03.25% (2,146,304B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |     |         |     ->03.25% (2,146,304B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |     |         |       ->03.25% (2,146,304B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |     |         |         ->03.25% (2,146,304B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |     |         |           ->03.25% (2,146,304B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |     |         |             ->03.25% (2,146,304B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |     |         |               ->03.25% (2,146,304B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |     |         |                 ->03.25% (2,146,304B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |     |         |                   ->03.25% (2,146,304B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |     |         |                     ->03.25% (2,146,304B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |     |         |                       ->03.25% (2,146,304B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |     |         |                         
+| |   |     |         ->03.23% (2,134,016B) 0x5E8678A: __nss_lookup (nsswitch.c:202)
+| |   |     |           ->03.23% (2,134,016B) 0x5E3EE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+| |   |     |             ->03.23% (2,134,016B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |     |               ->03.23% (2,134,016B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |     |                 ->03.23% (2,134,016B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |     |                   ->03.23% (2,134,016B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |     |                     ->03.23% (2,134,016B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |     |                       ->03.23% (2,134,016B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |     |                         ->03.23% (2,134,016B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |     |                           ->03.23% (2,134,016B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |     |                             ->03.23% (2,134,016B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |     |                               ->03.23% (2,134,016B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |     |                                 ->03.23% (2,134,016B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |     |                                   
+| |   |     ->03.24% (2,142,208B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |       ->03.24% (2,142,208B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->03.24% (2,142,208B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |           ->03.24% (2,142,208B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |             ->03.24% (2,142,208B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |               ->03.24% (2,142,208B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |                 ->03.24% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                   ->03.24% (2,142,208B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |                     ->03.24% (2,142,208B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |                       ->03.24% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                         ->03.24% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                           ->03.24% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                             ->03.24% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                               ->03.24% (2,142,208B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                 ->03.24% (2,142,208B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |                                   ->03.24% (2,142,208B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |                                     ->03.24% (2,142,208B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |                                       ->03.24% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                                         ->03.24% (2,142,208B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |                                           ->03.24% (2,142,208B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |                                             ->03.24% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                                               ->03.24% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                                 ->03.24% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                                                   ->03.24% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                                     
+| |   ->03.18% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->03.18% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->03.18% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->03.18% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->03.18% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->03.18% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->03.18% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->03.18% (2,105,344B) 0x2: ???
+| |                   ->03.18% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->03.18% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->03.18% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->03.18% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->06.44% (4,259,840B) 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+| | ->06.44% (4,259,840B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->06.44% (4,259,840B) 0x400CFE0: openaux (dl-deps.c:65)
+| |     ->06.44% (4,259,840B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->06.44% (4,259,840B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |         ->06.35% (4,202,496B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |         | ->06.35% (4,202,496B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |   ->06.35% (4,202,496B) 0x4013318: _dl_open (dl-open.c:639)
+| |         |     ->06.34% (4,194,304B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |         |     | ->06.34% (4,194,304B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |     |   ->06.34% (4,194,304B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |         |     |     ->06.34% (4,194,304B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |         |     |       ->06.34% (4,194,304B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |         |     |         ->06.34% (4,194,304B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |         |     |           ->06.34% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |     |             ->06.34% (4,194,304B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |         |     |               ->06.34% (4,194,304B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |         |     |                 ->06.34% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |     |                   ->06.34% (4,194,304B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |         |     |                     ->06.34% (4,194,304B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |         |     |                       ->06.34% (4,194,304B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |         |     |                         ->06.34% (4,194,304B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |         |     |                           ->06.34% (4,194,304B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |         |     |                             ->06.34% (4,194,304B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |         |     |                               ->06.34% (4,194,304B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |         |     |                                 ->06.34% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |     |                                   ->06.34% (4,194,304B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |         |     |                                     ->06.34% (4,194,304B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |         |     |                                       ->06.34% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |     |                                         
+| |         |     ->00.01% (8,192B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         |     
+| |         ->00.09% (57,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         
+| ->00.56% (368,640B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->17.55% (11,603,968B) 0x5E70169: mmap (syscall-template.S:82)
+| ->12.69% (8,392,704B) 0x4C2FA2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+| | ->12.69% (8,392,704B) 0x400F304: call_init.part.0 (dl-init.c:85)
+| |   ->12.69% (8,392,704B) 0x400F3DD: _dl_init (dl-init.c:52)
+| |     ->12.69% (8,392,704B) 0x4013AD8: dl_open_worker (dl-open.c:549)
+| |       ->12.69% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         ->12.69% (8,392,704B) 0x4013318: _dl_open (dl-open.c:639)
+| |           ->12.69% (8,392,704B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |             ->12.69% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |               ->12.69% (8,392,704B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |                 ->12.69% (8,392,704B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |                   ->12.69% (8,392,704B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |                     ->12.69% (8,392,704B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |                       ->12.69% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |                         ->12.69% (8,392,704B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |                           ->12.69% (8,392,704B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |                             ->12.69% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |                               ->12.69% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |                                 ->12.69% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |                                   ->12.69% (8,392,704B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |                                     ->12.69% (8,392,704B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |                                       ->12.69% (8,392,704B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |                                         ->12.69% (8,392,704B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |                                           ->12.69% (8,392,704B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |                                             ->12.69% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |                                               ->12.69% (8,392,704B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |                                                 ->12.69% (8,392,704B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |                                                   ->12.69% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |                                                     ->12.69% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |                                                       ->12.69% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |                                                         
+| ->02.43% (1,609,728B) 0x5DADDC4: _nl_load_locale_from_archive (loadarchive.c:228)
+| | ->02.43% (1,609,728B) 0x5DACE11: _nl_find_locale (findlocale.c:107)
+| |   ->02.43% (1,609,728B) 0x5DAC4F8: setlocale (setlocale.c:379)
+| |     ->02.43% (1,609,728B) 0x52D353: ??? (in /usr/bin/python2.7)
+| |       ->02.43% (1,609,728B) 0x4AA66B: Py_Main (in /usr/bin/python2.7)
+| |         ->02.43% (1,609,728B) 0x5DA176B: (below main) (libc-start.c:226)
+| |           
+| ->02.42% (1,601,536B) 0x5E015CB: _int_malloc (malloc.c:2400)
+| | ->02.42% (1,601,536B) 0x5E030B3: malloc (malloc.c:2924)
+| |   ->01.61% (1,064,960B) 0x423FC6: PyObject_Malloc (in /usr/bin/python2.7)
+| |   | ->01.21% (798,720B) 0x54390B: _PyObject_GC_Malloc (in /usr/bin/python2.7)
+| |   | | ->01.21% (798,720B) 0x4DFB30: PyTuple_New (in /usr/bin/python2.7)
+| |   | |   ->01.21% (798,720B) in 3 places, all below massif's threshold (01.00%)
+| |   | |     
+| |   | ->00.40% (266,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   | 
+| |   ->00.81% (536,576B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->04.90% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->01.52% (1,007,616B) 0x5E6C4D9: brk (brk.c:32)
+  ->01.52% (1,007,616B) 0x5E6C583: sbrk (sbrk.c:54)
+    ->01.52% (1,007,616B) 0x5E057D7: __default_morecore (morecore.c:49)
+      ->01.52% (1,007,616B) 0x5E01178: _int_malloc (malloc.c:2535)
+        ->01.52% (1,007,616B) 0x5E030B3: malloc (malloc.c:2924)
+          ->01.11% (737,280B) 0x4F8EBD: ??? (in /usr/bin/python2.7)
+          | ->01.11% (737,280B) in 5 places, all below massif's threshold (01.00%)
+          |   
+          ->00.41% (270,336B) in 1+ places, all below ms_print's threshold (01.00%)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 85     46,289,461       66,129,920       66,129,920             0            0
+ 86     46,320,946       66,125,824       66,125,824             0            0
+ 87     46,366,865       66,125,824       66,125,824             0            0
+ 88     46,400,599       66,125,824       66,125,824             0            0
+ 89     46,433,362       66,125,824       66,125,824             0            0
+ 90     46,457,923       66,125,824       66,125,824             0            0
+ 91     46,490,499       66,125,824       66,125,824             0            0
+ 92     48,632,335      217,128,960      217,128,960             0            0
+ 93     48,632,350      165,990,400      165,990,400             0            0
+100.00% (165,990,400B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+->67.15% (111,468,544B) 0x5E70169: mmap (syscall-template.S:82)
+| ->50.05% (83,079,168B) 0x5DFE377: new_heap (arena.c:554)
+| | ->50.05% (83,079,168B) 0x5DFF2B3: arena_get2.isra.5.part.6 (arena.c:712)
+| |   ->50.05% (83,079,168B) 0x5E031E7: malloc (arena.c:824)
+| |     ->50.05% (83,079,168B) 0x4D3286: ??? (in /usr/bin/python2.7)
+| |       ->50.05% (83,079,168B) 0x4D348A: PyGILState_Ensure (in /usr/bin/python2.7)
+| |         ->50.05% (83,079,168B) 0x64E2DB9: SandboxPolicy_entry (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |           ->50.05% (83,079,168B) 0x66EDE5E: sandbox_watcher (in /usr/lib/libsandbox.so.0.3.5)
+| |             ->50.05% (83,079,168B) 0x4C2EE98: start_thread (pthread_create.c:308)
+| |               
+| ->15.17% (25,178,112B) 0x4C2FA2C: pthread_create@@GLIBC_2.2.5 (allocatestack.c:495)
+| | ->05.06% (8,392,704B) 0x400F304: call_init.part.0 (dl-init.c:85)
+| | | ->05.06% (8,392,704B) 0x400F3DD: _dl_init (dl-init.c:52)
+| | |   ->05.06% (8,392,704B) 0x4013AD8: dl_open_worker (dl-open.c:549)
+| | |     ->05.06% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| | |       ->05.06% (8,392,704B) 0x4013318: _dl_open (dl-open.c:639)
+| | |         ->05.06% (8,392,704B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| | |           ->05.06% (8,392,704B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| | |             ->05.06% (8,392,704B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| | |               ->05.06% (8,392,704B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| | |                 ->05.06% (8,392,704B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| | |                   ->05.06% (8,392,704B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| | |                     ->05.06% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| | |                       ->05.06% (8,392,704B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| | |                         ->05.06% (8,392,704B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| | |                           ->05.06% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| | |                             ->05.06% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| | |                               ->05.06% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| | |                                 ->05.06% (8,392,704B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| | |                                   ->05.06% (8,392,704B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| | |                                     ->05.06% (8,392,704B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| | |                                       ->05.06% (8,392,704B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| | |                                         ->05.06% (8,392,704B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| | |                                           ->05.06% (8,392,704B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| | |                                             ->05.06% (8,392,704B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| | |                                               ->05.06% (8,392,704B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| | |                                                 ->05.06% (8,392,704B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| | |                                                   ->05.06% (8,392,704B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| | |                                                     ->05.06% (8,392,704B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| | |                                                       
+| | ->05.06% (8,392,704B) 0x66F02FD: sandbox_execute (in /usr/lib/libsandbox.so.0.3.5)
+| | | ->05.06% (8,392,704B) 0x64E1D7C: Sandbox_run (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| | |   ->05.06% (8,392,704B) 0x498908: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| | |     ->05.06% (8,392,704B) 0x498600: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| | |       ->05.06% (8,392,704B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| | |         ->05.06% (8,392,704B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| | |           ->05.06% (8,392,704B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| | |             ->05.06% (8,392,704B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| | |               ->05.06% (8,392,704B) 0x5DA176B: (below main) (libc-start.c:226)
+| | |                 
+| | ->05.06% (8,392,704B) 0x66F0322: sandbox_execute (in /usr/lib/libsandbox.so.0.3.5)
+| |   ->05.06% (8,392,704B) 0x64E1D7C: Sandbox_run (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |     ->05.06% (8,392,704B) 0x498908: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |       ->05.06% (8,392,704B) 0x498600: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |         ->05.06% (8,392,704B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |           ->05.06% (8,392,704B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |             ->05.06% (8,392,704B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |               ->05.06% (8,392,704B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |                 ->05.06% (8,392,704B) 0x5DA176B: (below main) (libc-start.c:226)
+| |                   
+| ->01.93% (3,211,264B) in 4 places, all below massif's threshold (01.00%)
+|   
+->30.29% (50,274,304B) 0x4018429: mmap (syscall-template.S:82)
+| ->27.50% (45,649,920B) 0x4006B67: _dl_map_object_from_fd (dl-load.c:1283)
+| | ->27.50% (45,649,920B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->22.36% (37,122,048B) 0x400CFE0: openaux (dl-deps.c:65)
+| |   | ->22.36% (37,122,048B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->22.36% (37,122,048B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |   |     ->14.64% (24,305,664B) 0x400350B: dl_main (rtld.c:1826)
+| |   |     | ->14.64% (24,305,664B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |   |     |   ->14.64% (24,305,664B) 0x4005363: _dl_start (rtld.c:338)
+| |   |     |     ->14.64% (24,305,664B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |   |     |       ->14.64% (24,305,664B) 0x2: ???
+| |   |     |         ->14.64% (24,305,664B) 0x7FF0007A5: ???
+| |   |     |           ->14.64% (24,305,664B) 0x7FF0007AC: ???
+| |   |     |             ->14.64% (24,305,664B) 0x7FF0007BB: ???
+| |   |     |               ->14.64% (24,305,664B) 0x7FF0007BD: ???
+| |   |     |                 
+| |   |     ->07.72% (12,816,384B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |   |       ->07.72% (12,816,384B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->07.72% (12,816,384B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |           ->05.10% (8,462,336B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |           | ->05.10% (8,462,336B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |           |   ->05.10% (8,462,336B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |           |     ->05.10% (8,462,336B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |           |       ->05.10% (8,462,336B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |           |         ->05.10% (8,462,336B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |           |           ->05.10% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |           |             ->05.10% (8,462,336B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |           |               ->05.10% (8,462,336B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |           |                 ->05.10% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |           |                   ->05.10% (8,462,336B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |           |                     ->05.10% (8,462,336B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |           |                       ->05.10% (8,462,336B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |           |                         ->05.10% (8,462,336B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |           |                           ->05.10% (8,462,336B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |           |                             ->05.10% (8,462,336B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |           |                               ->05.10% (8,462,336B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |           |                                 ->05.10% (8,462,336B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |           |                                   ->05.10% (8,462,336B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |           |                                     ->05.10% (8,462,336B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |           |                                       ->05.10% (8,462,336B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |           |                                         
+| |   |           ->02.62% (4,354,048B) 0x5EB0700: do_dlopen (dl-libc.c:89)
+| |   |             ->02.62% (4,354,048B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |               ->02.62% (4,354,048B) 0x5EB07C2: __libc_dlopen_mode (dl-libc.c:48)
+| |   |                 ->02.62% (4,354,048B) 0x5E85B1C: nss_load_library.isra.1 (nsswitch.c:372)
+| |   |                   ->02.62% (4,354,048B) 0x5E8657B: __nss_lookup_function (nsswitch.c:474)
+| |   |                     ->01.33% (2,203,648B) 0x5E8678A: __nss_lookup (nsswitch.c:202)
+| |   |                     | ->01.33% (2,203,648B) 0x5E3EE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+| |   |                     |   ->01.33% (2,203,648B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |                     |     ->01.33% (2,203,648B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |                     |       ->01.33% (2,203,648B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |                     |         ->01.33% (2,203,648B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |                     |           ->01.33% (2,203,648B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                     |             ->01.33% (2,203,648B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                     |               ->01.33% (2,203,648B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                     |                 ->01.33% (2,203,648B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |                     |                   ->01.33% (2,203,648B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |                     |                     ->01.33% (2,203,648B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |                     |                       ->01.33% (2,203,648B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |                     |                         
+| |   |                     ->01.30% (2,150,400B) 0x770063D: ???
+| |   |                       ->01.30% (2,150,400B) 0x5E3ECFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+| |   |                         ->01.30% (2,150,400B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |                           ->01.30% (2,150,400B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |                             ->01.30% (2,150,400B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |                               ->01.30% (2,150,400B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |                                 ->01.30% (2,150,400B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                   ->01.30% (2,150,400B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                     ->01.30% (2,150,400B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                       ->01.30% (2,150,400B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |                                         ->01.30% (2,150,400B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |                                           ->01.30% (2,150,400B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |                                             ->01.30% (2,150,400B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |                                               
+| |   ->03.87% (6,422,528B) 0x4013849: dl_open_worker (dl-open.c:225)
+| |   | ->03.87% (6,422,528B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |   ->03.87% (6,422,528B) 0x4013318: _dl_open (dl-open.c:639)
+| |   |     ->02.58% (4,280,320B) 0x5EB0700: do_dlopen (dl-libc.c:89)
+| |   |     | ->02.58% (4,280,320B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |     |   ->02.58% (4,280,320B) 0x5EB07C2: __libc_dlopen_mode (dl-libc.c:48)
+| |   |     |     ->02.58% (4,280,320B) 0x5E85B1C: nss_load_library.isra.1 (nsswitch.c:372)
+| |   |     |       ->02.58% (4,280,320B) 0x5E8657B: __nss_lookup_function (nsswitch.c:474)
+| |   |     |         ->01.29% (2,146,304B) 0x770063D: ???
+| |   |     |         | ->01.29% (2,146,304B) 0x5E3ECFB: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:256)
+| |   |     |         |   ->01.29% (2,146,304B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |     |         |     ->01.29% (2,146,304B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |     |         |       ->01.29% (2,146,304B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |     |         |         ->01.29% (2,146,304B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |     |         |           ->01.29% (2,146,304B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |     |         |             ->01.29% (2,146,304B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |     |         |               ->01.29% (2,146,304B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |     |         |                 ->01.29% (2,146,304B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |     |         |                   ->01.29% (2,146,304B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |     |         |                     ->01.29% (2,146,304B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |     |         |                       ->01.29% (2,146,304B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |     |         |                         
+| |   |     |         ->01.29% (2,134,016B) 0x5E8678A: __nss_lookup (nsswitch.c:202)
+| |   |     |           ->01.29% (2,134,016B) 0x5E3EE16: getpwuid_r@@GLIBC_2.2.5 (getXXbyYY_r.c:203)
+| |   |     |             ->01.29% (2,134,016B) 0x5E3E5F1: getpwuid (getXXbyYY.c:117)
+| |   |     |               ->01.29% (2,134,016B) 0x66EFD6F: sandbox_check (in /usr/lib/libsandbox.so.0.3.5)
+| |   |     |                 ->01.29% (2,134,016B) 0x64E2D1E: Sandbox_new (in /usr/local/lib/python2.7/dist-packages/sandbox/_sandbox.so)
+| |   |     |                   ->01.29% (2,134,016B) 0x4DB5E6: ??? (in /usr/bin/python2.7)
+| |   |     |                     ->01.29% (2,134,016B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |     |                       ->01.29% (2,134,016B) 0x498468: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |     |                         ->01.29% (2,134,016B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |     |                           ->01.29% (2,134,016B) 0x4A907F: PyRun_FileExFlags (in /usr/bin/python2.7)
+| |   |     |                             ->01.29% (2,134,016B) 0x4A930F: PyRun_SimpleFileExFlags (in /usr/bin/python2.7)
+| |   |     |                               ->01.29% (2,134,016B) 0x4AA8BB: Py_Main (in /usr/bin/python2.7)
+| |   |     |                                 ->01.29% (2,134,016B) 0x5DA176B: (below main) (libc-start.c:226)
+| |   |     |                                   
+| |   |     ->01.29% (2,142,208B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |   |       ->01.29% (2,142,208B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |   |         ->01.29% (2,142,208B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |   |           ->01.29% (2,142,208B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |   |             ->01.29% (2,142,208B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |   |               ->01.29% (2,142,208B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |   |                 ->01.29% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                   ->01.29% (2,142,208B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |   |                     ->01.29% (2,142,208B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |   |                       ->01.29% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                         ->01.29% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                           ->01.29% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                             ->01.29% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                               ->01.29% (2,142,208B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |   |                                 ->01.29% (2,142,208B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |   |                                   ->01.29% (2,142,208B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |   |                                     ->01.29% (2,142,208B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |   |                                       ->01.29% (2,142,208B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |   |                                         ->01.29% (2,142,208B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |   |                                           ->01.29% (2,142,208B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |   |                                             ->01.29% (2,142,208B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |   |                                               ->01.29% (2,142,208B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |   |                                                 ->01.29% (2,142,208B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |   |                                                   ->01.29% (2,142,208B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |   |                                                     
+| |   ->01.27% (2,105,344B) 0x400188C: map_doit (rtld.c:633)
+| |     ->01.27% (2,105,344B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->01.27% (2,105,344B) 0x4000ECD: do_preload (rtld.c:822)
+| |         ->01.27% (2,105,344B) 0x4004118: dl_main (rtld.c:1717)
+| |           ->01.27% (2,105,344B) 0x4015B22: _dl_sysdep_start (dl-sysdep.c:244)
+| |             ->01.27% (2,105,344B) 0x4005363: _dl_start (rtld.c:338)
+| |               ->01.27% (2,105,344B) 0x40016B6: ??? (in /lib/x86_64-linux-gnu/ld-2.15.so)
+| |                 ->01.27% (2,105,344B) 0x2: ???
+| |                   ->01.27% (2,105,344B) 0x7FF0007A5: ???
+| |                     ->01.27% (2,105,344B) 0x7FF0007AC: ???
+| |                       ->01.27% (2,105,344B) 0x7FF0007BB: ???
+| |                         ->01.27% (2,105,344B) 0x7FF0007BD: ???
+| |                           
+| ->02.57% (4,259,840B) 0x4007148: _dl_map_object_from_fd (dl-load.c:1392)
+| | ->02.57% (4,259,840B) 0x4008698: _dl_map_object (dl-load.c:2568)
+| |   ->02.57% (4,259,840B) 0x400CFE0: openaux (dl-deps.c:65)
+| |     ->02.57% (4,259,840B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |       ->02.57% (4,259,840B) 0x400D6BC: _dl_map_object_deps (dl-deps.c:258)
+| |         ->02.53% (4,202,496B) 0x40138A7: dl_open_worker (dl-open.c:262)
+| |         | ->02.53% (4,202,496B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |   ->02.53% (4,202,496B) 0x4013318: _dl_open (dl-open.c:639)
+| |         |     ->02.53% (4,194,304B) 0x4E44F24: dlopen_doit (dlopen.c:67)
+| |         |     | ->02.53% (4,194,304B) 0x400F174: _dl_catch_error (dl-error.c:178)
+| |         |     |   ->02.53% (4,194,304B) 0x4E4552D: _dlerror_run (dlerror.c:164)
+| |         |     |     ->02.53% (4,194,304B) 0x4E44FBF: dlopen@@GLIBC_2.2.5 (dlopen.c:88)
+| |         |     |       ->02.53% (4,194,304B) 0x561838: _PyImport_GetDynLoadFunc (in /usr/bin/python2.7)
+| |         |     |         ->02.53% (4,194,304B) 0x47AF17: _PyImport_LoadDynamicModule (in /usr/bin/python2.7)
+| |         |     |           ->02.53% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |     |             ->02.53% (4,194,304B) 0x53DCA8: ??? (in /usr/bin/python2.7)
+| |         |     |               ->02.53% (4,194,304B) 0x53E1B1: ??? (in /usr/bin/python2.7)
+| |         |     |                 ->02.53% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |     |                   ->02.53% (4,194,304B) 0x4E9F34: PyObject_Call (in /usr/bin/python2.7)
+| |         |     |                     ->02.53% (4,194,304B) 0x4EA394: PyEval_CallObjectWithKeywords (in /usr/bin/python2.7)
+| |         |     |                       ->02.53% (4,194,304B) 0x49A4EB: PyEval_EvalFrameEx (in /usr/bin/python2.7)
+| |         |     |                         ->02.53% (4,194,304B) 0x49F1BE: PyEval_EvalCodeEx (in /usr/bin/python2.7)
+| |         |     |                           ->02.53% (4,194,304B) 0x4A7F16: PyImport_ExecCodeModuleEx (in /usr/bin/python2.7)
+| |         |     |                             ->02.53% (4,194,304B) 0x53CDDF: ??? (in /usr/bin/python2.7)
+| |         |     |                               ->02.53% (4,194,304B) 0x4A4189: ??? (in /usr/bin/python2.7)
+| |         |     |                                 ->02.53% (4,194,304B) 0x53D7D9: ??? (in /usr/bin/python2.7)
+| |         |     |                                   ->02.53% (4,194,304B) 0x4FC1A1: ??? (in /usr/bin/python2.7)
+| |         |     |                                     ->02.53% (4,194,304B) 0x53E0A2: ??? (in /usr/bin/python2.7)
+| |         |     |                                       ->02.53% (4,194,304B) 0x4C2E69: ??? (in /usr/bin/python2.7)
+| |         |     |                                         
+| |         |     ->00.00% (8,192B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         |     
+| |         ->00.03% (57,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| |         
+| ->00.22% (364,544B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.95% (3,239,936B) 0xFFFFFFFFFFFFFFFF: ???
+| 
+->00.61% (1,007,616B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 94     48,712,462      150,024,192      150,024,192             0            0
+ 95     50,063,516      149,688,320      149,688,320             0            0
+ 96     51,558,848      148,078,592      148,078,592             0            0
+ 97     51,574,435      118,616,064      118,616,064             0            0
