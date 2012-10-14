@@ -2,13 +2,14 @@
 #
 # @copyright (c) 2012, OpenJudge Alliance <http://openjudge.net>
 # @author LIU Yu <pineapple.liu@gmail.com>
-# @date 2012/10/06
+# @date 2012/10/10
 #
 # This program source code is part of the OpenJudge Alliance Technical Report
 # (TR-OJA-201209A) at <http://openjudge.net/TR/201209A>.
 #
 
-from ctypes import c_int
+from ctypes import Structure, sizeof
+from ctypes import c_uint32, c_uint64, c_int32, c_int64, c_int
 from platform import system, machine
 from sandbox import *
 
@@ -16,30 +17,30 @@ from sandbox import *
 if system() not in ('Linux', ) or machine() not in ('x86_64', 'i686', ):
     raise AssertionError("Unsupported platform type.\n")
 
-# sandbox with (partial) predictive out-of-quota (memory) detection
-class PredictiveMemQuotaSandbox(SandboxPolicy,Sandbox):
+# sandbox with predictive out-of-quota (output) detection
+class PredictiveOutputQuotaSandbox(SandboxPolicy,Sandbox):
     def __init__(self, *args, **kwds):
-        # Linux system calls for memory-allocation
+        # Linux system calls for fd write
         if machine() == 'x86_64': # x86_64 (multiarch) system calls
             x86_64, i686 = 0, 1
-            SC_brk = ((12, x86_64), (45, i686), )
-            SC_mmap = ((9, x86_64), (90, i686), )
-            SC_mmap2 = ((192, i686), )
-            SC_mremap = ((25, x86_64), (163, i686), )
+            SC_write = ((1, x86_64), (4, i686), )
+            SC_pwrite64 = ((18, x86_64), (181, i686), )
+            SC_writev = ((20, x86_64), (146, i686), )
+            SC_pwritev = ((296, x86_64), (334, i686), )
         else: # i686 system calls
-            SC_brk = (45, )
-            SC_mmap = (90, )
-            SC_mmap2 = (192, )
-            SC_mremap = (163, )
+            SC_write = (4, )
+            SC_pwrite64 = (181, )
+            SC_writev = (146, )
+            SC_pwritev = (334, )
         # table of system call rules
         self.sc_table = {}
-        for entry, handler in zip((SC_brk, SC_mmap, SC_mmap2, SC_mremap), \
-            (self.SYS_brk, self.SYS_mmap, self.SYS_mmap, self.SYS_mremap)):
+        for entry, handler in zip((SC_write, SC_pwrite64, SC_writev, SC_pwritev), \
+            (self.SYS_write, self.SYS_write, self.SYS_writev, self.SYS_writev)):
             for sc in entry:
                 self.sc_table[sc] = handler
         # policy internal states
-        self.data_seg_end = 0 # data segment end address
-        self.pending_alloc = 0 # pending memory allocation (kB)
+        self.written_bytes = 0
+        self.pending_bytes = 0
         # initalize as a polymorphic sandbox-and-policy object
         SandboxPolicy.__init__(self)
         Sandbox.__init__(self, *args, **kwds)
@@ -48,7 +49,7 @@ class PredictiveMemQuotaSandbox(SandboxPolicy,Sandbox):
     def probe(self):
         # add custom entries into the probe dict
         d = Sandbox.probe(self, False)
-        d['mem'] = (d['mem_info'][1], d['mem_info'][0] + self.pending_alloc)
+        d['out'] = (self.written_bytes, self.written_bytes + self.pending_bytes)
         return d
     def __call__(self, e, a):
         # handle SYSCALL/SYSRET events with local rules
@@ -58,34 +59,44 @@ class PredictiveMemQuotaSandbox(SandboxPolicy,Sandbox):
                 return self.sc_table[sc](e, a)
         # bypass other events to base class
         return SandboxPolicy.__call__(self, e, a)
-    def SYS_brk(self, e, a):
+    def SYS_write(self, e, a): # write / pwrite64
+        abi64 = (machine() == 'x86_64' and e.ext0 == 0)
+        ssize_t, size_t = (c_int64, c_uint64) if abi64 else (c_int32, c_uint32)
         if e.type == S_EVENT_SYSCALL:
-            # pending data segment increment
-            if e.ext1 > 0:
-                incr = e.ext1 - self.data_seg_end
-                return self._memory_check(e, a, incr)
+            self.pending_bytes = size_t(e.ext3).value
         else:
-            # update data segment end address
-            self.data_seg_end = e.ext1
-        return self._memory_check(e, a)
-    def SYS_mmap(self, e, a):
-        MAP_PRIVATE = 0x02      # from <bits/mman.h>
+            if ssize_t(e.ext1).value > 0:
+                self.written_bytes += ssize_t(e.ext1).value
+            self.pending_bytes = 0
+        return self._output_check(e, a)
+    def SYS_writev(self, e, a): # writev / pwritev
+        abi64 = (machine() == 'x86_64' and e.ext0 == 0)
+        ssize_t = c_int64 if abi64 else c_int32
         if e.type == S_EVENT_SYSCALL:
-            size, flags, fd = e.ext2, c_int(e.ext4).value, c_int(e.ext5).value
-            # forbid non-pivate mapping or mapping to unknown file descriptors
-            if flags & MAP_PRIVATE == 0 or fd not in (-1, 0, 1, 2):
-                return self._KILL_RF(e, a)
-            # pending memory mapping
-            return self._memory_check(e, a, size)
-        return self._memory_check(e, a)
-    def SYS_mremap(self, e, a):
-        # fallback to lazy (non-predictive) quota limitation
-        return self._memory_check(e, a)
-    def _memory_check(self, e, a, incr=0):
-        # compare current mem usage (incl. pending alloc) against the quota
-        self.pending_alloc = incr / 1024
-        if max(self.probe()['mem']) * 1024 > self.quota[2]:
-            return self._KILL_ML(e, a)
+            # enumerate the struct iovec[] to count pending bytes
+            address, iovcnt = e.ext2, c_int(e.ext3).value
+            self.pending_bytes = 0
+            for i in range(iovcnt):
+                iovec = self._dump_iovec(abi64, address)
+                self.pending_bytes += iovec.iov_len
+                address += sizeof(iovec)
+        else:
+            if ssize_t(e.ext1).value > 0:
+                self.written_bytes += ssize_t(e.ext1).value
+            self.pending_bytes = 0
+        return self._output_check(e, a)
+    def _dump_iovec(self, abi64, address):
+        # dump a struct iovec object from the given address
+        typeid = T_ULONG if abi64 else T_UINT
+        size_t, char_p = (c_uint64, ) * 2 if abi64 else (c_uint32, ) * 2
+        class struct_iovec(Structure): # from manpage writev(2)
+             _fields_ = [('iov_base', char_p), ('iov_len', size_t), ]
+        return struct_iovec(self.dump(typeid, address), \
+            self.dump(typeid, address + sizeof(char_p)))
+    def _output_check(self, e, a):
+        # compare current written + pending bytes against the quota
+        if self.written_bytes + self.pending_bytes > self.quota[3]:
+            return self._KILL_OL(e, a)
         return self._CONT(e, a)
     def _CONT(self, e, a): # continue
         a.type = S_ACTION_CONT
@@ -93,8 +104,8 @@ class PredictiveMemQuotaSandbox(SandboxPolicy,Sandbox):
     def _KILL_RF(self, e, a): # restricted func.
         a.type, a.data = S_ACTION_KILL, S_RESULT_RF
         return a
-    def _KILL_ML(self, e, a): # mem limit exceeded
-        a.type, a.data = S_ACTION_KILL, S_RESULT_ML
+    def _KILL_OL(self, e, a): # disk output limit exceeded
+        a.type, a.data = S_ACTION_KILL, S_RESULT_OL
         return a
     pass
 
@@ -102,8 +113,8 @@ result_name = dict((getattr(Sandbox, 'S_RESULT_%s' % i), i) for i in \
     ('PD', 'OK', 'RF', 'RT', 'TL', 'ML', 'OL', 'AT', 'IE', 'BP'))
 
 if __name__ == '__main__':
-    s = PredictiveMemQuotaSandbox("./malloc.exe", quota=dict(memory=2**22))
+    s = PredictiveOutputQuotaSandbox("./write.exe", quota=dict(disk=64))
     s.run()
     print("result: %s" % result_name.get(s.result, 'NA'))
-    print("mem: %dkB / %dkB" % s.probe()['mem']) # allocated / predicted
+    print("out: %dB / %dB" % s.probe()['out']) # written / predicted
 
