@@ -28,6 +28,8 @@ class SelectiveOpenPolicy(SandboxPolicy):
         return super(SelectiveOpenPolicy, self).__call__(e, a)
     def SYS_open(self, e, a):
         path, mode = self.sbox.dump(T_STRING, e.ext1), e.ext2
+        if path is None:  # e.ext1 is an invalid address
+            return SandboxAction(S_ACTION_KILL, S_RESULT_RT)
         if path == b"./data.in" and mode == O_RDONLY:
             return SandboxAction(S_ACTION_CONT)
         return SandboxAction(S_ACTION_KILL, S_RESULT_RF)
